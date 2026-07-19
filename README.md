@@ -21,3 +21,7 @@ or
 https://l1ndseyherman.github.io/beach-app/#/beach
 
 . Eventually, I want to make a login page that redirects there, but that won't be for awhile.
+
+yarn test
+
+also works now.
