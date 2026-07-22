@@ -1,5 +1,6 @@
 import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
+import { Link } from "react-router-dom";
 
 function Beach() {
   const options = [
@@ -17,6 +18,7 @@ function Beach() {
           <TextField {...params} label="Select Option" variant="outlined" />
         )}
       />
+      <Link to="/deep_ocean">Deep Ocean</Link>
       <h1>Beach</h1>
     </>
   );
