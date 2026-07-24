@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 function Beach() {
   const options = [
-    { id: 1, label: "Beach" },
-    { id: 2, label: "Shallow Ocean" },
-    { id: 3, label: "Deep Ocean" },
+    { id: 1, label: "Beach", url: "/beach" },
+    { id: 2, label: "Shallow Ocean", url: "/shallow_ocean" },
+    { id: 3, label: "Deep Ocean", url: "/deep_ocean" },
   ];
 
   return (
@@ -17,9 +17,8 @@ function Beach() {
         renderInput={(params) => (
           <TextField {...params} label="Select Option" variant="outlined" />
         )}
-        renderOption={(option) => <Link to="/deep_ocean">{option.label}</Link>}
+        renderOption={(option) => <Link to={option.url}>{option.label}</Link>}
       />
-      <Link to="/deep_ocean">Deep Ocean</Link>
       <h1>Beach</h1>
     </>
   );
