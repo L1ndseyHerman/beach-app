@@ -17,6 +17,7 @@ function Beach() {
         renderInput={(params) => (
           <TextField {...params} label="Select Option" variant="outlined" />
         )}
+        renderOption={(option) => <Link to="/deep_ocean">{option.label}</Link>}
       />
       <Link to="/deep_ocean">Deep Ocean</Link>
       <h1>Beach</h1>
