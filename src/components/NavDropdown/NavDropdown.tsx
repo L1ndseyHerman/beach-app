@@ -2,11 +2,15 @@ import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 
-function NavDropdown() {
+interface NavDropdownProps {
+  urls: string[];
+}
+
+export default function NavDropdown({ urls }: NavDropdownProps) {
   const options = [
-    { id: 1, label: "Beach", url: "/beach" },
-    { id: 2, label: "Shallow Ocean", url: "/shallow_ocean" },
-    { id: 3, label: "Deep Ocean", url: "/deep_ocean" },
+    { id: 1, label: "Beach", url: urls[0] },
+    { id: 2, label: "Shallow Ocean", url: urls[1] },
+    { id: 3, label: "Deep Ocean", url: urls[2] },
   ];
 
   return (
@@ -20,5 +24,3 @@ function NavDropdown() {
     />
   );
 }
-
-export default NavDropdown;

@@ -4,29 +4,29 @@ import ShallowOcean from "./ShallowOcean/ShallowOcean";
 import DeepOcean from "./DeepOcean/DeepOcean";
 import NavDropdown from "./NavDropdown/NavDropdown";
 
-function App() {
+export default function App() {
+  const urls = ["/beach", "/shallow_ocean", "/deep_ocean"];
+
   return (
     <Switch>
-      <Route path="/beach">
+      <Route path={urls[0]}>
         <>
-          <NavDropdown />
+          <NavDropdown urls={urls} />
           <Beach />
         </>
       </Route>
-      <Route path="/shallow_ocean">
+      <Route path={urls[1]}>
         <>
-          <NavDropdown />
+          <NavDropdown urls={urls} />
           <ShallowOcean />
         </>
       </Route>
-      <Route path="/deep_ocean">
+      <Route path={urls[2]}>
         <>
-          <NavDropdown />
+          <NavDropdown urls={urls} />
           <DeepOcean />
         </>
       </Route>
     </Switch>
   );
 }
-
-export default App;
