@@ -25,3 +25,7 @@ https://l1ndseyherman.github.io/beach-app/#/beach
 yarn test
 
 also works now.
+
+Also
+
+npx cypress open
