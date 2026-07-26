@@ -18,7 +18,11 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
       options={options}
       getOptionLabel={(option) => option.label}
       renderInput={(params) => (
-        <TextField {...params} label="Select Option" variant="outlined" />
+        <TextField
+          {...params}
+          label="Select a Page to View"
+          variant="outlined"
+        />
       )}
       renderOption={(option) => <Link to={option.url}>{option.label}</Link>}
     />

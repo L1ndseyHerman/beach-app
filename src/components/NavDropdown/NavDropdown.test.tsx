@@ -10,6 +10,6 @@ describe("NavDropdown page", () => {
         <NavDropdown urls={["/in_progress"]} />
       </HashRouter>,
     );
-    expect(screen.getByLabelText("Select Option")).toBeVisible();
+    expect(screen.getByLabelText("Select a Page to View")).toBeVisible();
   });
 });
