@@ -28,4 +28,11 @@ also works now.
 
 Also
 
-npx cypress open
+npx cypress open.
+
+Some versions I'm using that aren't specified in the project:
+
+NVM: 1.2.2
+Node: 22.13.0 (currently, have others on my NVM as well)
+NPM: 10.9.2
+Yarn: 1.22.22 (it uses that corepack thing if that matters?)
