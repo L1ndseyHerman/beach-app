@@ -1,8 +1,12 @@
 import { Button, TextField } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 export default function LoginForm() {
+  const history = useHistory();
+
   const handleLoginButtonClick = () => {
     console.log("You clicked the login button!");
+    history.push("/beach");
   };
 
   return (
