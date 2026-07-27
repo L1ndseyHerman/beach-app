@@ -1,11 +1,12 @@
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Beach from "./Beach/Beach";
 import ShallowOcean from "./ShallowOcean/ShallowOcean";
 import DeepOcean from "./DeepOcean/DeepOcean";
 import NavDropdown from "./NavDropdown/NavDropdown";
+import LoginForm from "./LoginForm/LoginForm";
 
 export default function App() {
-  const urls = ["/beach", "/shallow_ocean", "/deep_ocean"];
+  const urls = ["/beach", "/shallow_ocean", "/deep_ocean", "/login"];
 
   return (
     <Switch>
@@ -27,6 +28,11 @@ export default function App() {
           <DeepOcean />
         </>
       </Route>
+      <Route path={urls[3]}>
+        <LoginForm />
+      </Route>
+      {/* Supposidly, anything besides the above 3 urls should get redirected to login? */}
+      <Redirect to={urls[3]} />
     </Switch>
   );
 }
