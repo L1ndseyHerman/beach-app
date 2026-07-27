@@ -31,7 +31,6 @@ export default function App() {
       <Route path={urls[3]}>
         <LoginForm />
       </Route>
-      {/* Supposidly, anything besides the above 3 urls should get redirected to login? */}
       <Redirect to={urls[3]} />
     </Switch>
   );

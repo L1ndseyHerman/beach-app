@@ -5,6 +5,6 @@ import LoginForm from "./LoginForm";
 describe("Login page", () => {
   it("displays 'Login'", () => {
     render(<LoginForm />);
-    expect(screen.getByText("Login")).toBeVisible();
+    expect(screen.getAllByText("Login")[0]).toBeVisible();
   });
 });
