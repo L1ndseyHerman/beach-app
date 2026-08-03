@@ -1,4 +1,9 @@
 {
   "Beach.Beach": "Playa",
-  "ShallowOcean.ShallowOcean": "(es) ShallowOcean"
+  "ShallowOcean.ShallowOcean": "(es) Shallow Ocean",
+  "DeepOcean.DeepOcean": "(es) Deep Ocean",
+  "NavDropdown.SelectPage": "(es) Select a Page to View",
+  "LoginForm.Login": "(es) Login",
+  "LoginForm.Username": "Nombre del User",
+  "LoginForm.Password": "(es) Password"
 }

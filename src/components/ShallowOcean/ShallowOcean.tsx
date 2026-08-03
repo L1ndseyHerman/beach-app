@@ -1,13 +1,12 @@
-import { useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 export default function ShallowOcean() {
-  const intl = useIntl();
   return (
     <h1>
-      {intl.formatMessage({
-        id: "ShallowOcean.ShallowOcean",
-        defaultMessage: "ShallowOcean",
-      })}
+      <FormattedMessage
+        id="ShallowOcean.ShallowOcean"
+        defaultMessage="Shallow Ocean"
+      />
     </h1>
   );
 }

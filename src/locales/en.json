@@ -1,4 +1,9 @@
 {
   "Beach.Beach": "Beach",
-  "ShallowOcean.ShallowOcean": "ShallowOcean"
+  "ShallowOcean.ShallowOcean": "Shallow Ocean",
+  "DeepOcean.DeepOcean": "Deep Ocean",
+  "NavDropdown.SelectPage": "Select a Page to View",
+  "LoginForm.Login": "Login",
+  "LoginForm.Username": "Username",
+  "LoginForm.Password": "Password"
 }

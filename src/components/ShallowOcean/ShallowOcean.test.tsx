@@ -4,12 +4,12 @@ import ShallowOcean from "./ShallowOcean";
 import { IntlProvider } from "react-intl";
 
 describe("ShallowOcean page", () => {
-  it("displays 'ShallowOcean'", () => {
+  it("displays 'Shallow Ocean'", () => {
     render(
       <IntlProvider locale={"en"}>
         <ShallowOcean />
       </IntlProvider>,
     );
-    expect(screen.getByText("ShallowOcean")).toBeVisible();
+    expect(screen.getByText("Shallow Ocean")).toBeVisible();
   });
 });

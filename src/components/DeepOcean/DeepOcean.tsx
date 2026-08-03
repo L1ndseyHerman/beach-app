@@ -1,3 +1,9 @@
+import { FormattedMessage } from "react-intl";
+
 export default function DeepOcean() {
-  return <h1>DeepOcean</h1>;
+  return (
+    <h1>
+      <FormattedMessage id="DeepOcean.DeepOcean" defaultMessage="Deep Ocean" />
+    </h1>
+  );
 }
