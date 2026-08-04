@@ -3,6 +3,20 @@ import { useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
 import { useState } from "react";
 
+//  I have plans for this in the next commit or 2:
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Role = {
+  ScubaDiver: 0,
+  Swimmer: 1,
+  Mermaid: 2,
+} as const;
+
+interface User {
+  username: string;
+  password: string;
+  role: (typeof Role)[keyof typeof Role];
+}
+
 export default function LoginForm() {
   const history = useHistory();
   const intl = useIntl();
@@ -10,8 +24,14 @@ export default function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const allowedUsername = "ScubaDiver";
-  const allowedPassword = "1";
+  const fakeUsers: User[] = [
+    {
+      username: "ScubaDiver",
+      password: "0",
+      role: Role.ScubaDiver,
+    },
+  ];
+
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
@@ -21,7 +41,15 @@ export default function LoginForm() {
       "The username is: " + username + " and the password is: " + password,
     );
 
-    if (username === allowedUsername && password === allowedPassword) {
+    let isValidUser = false;
+
+    for (const user of fakeUsers) {
+      if (username === user.username && password === user.password) {
+        isValidUser = true;
+      }
+    }
+
+    if (isValidUser) {
       history.push("/beach");
     } else {
       setErrorMessage(

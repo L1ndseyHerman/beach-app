@@ -34,7 +34,7 @@ describe("Login page", () => {
     );
 
     await userEvent.type(screen.getAllByRole("textbox")[0], "a");
-    await userEvent.type(screen.getAllByRole("textbox")[1], "1");
+    await userEvent.type(screen.getAllByRole("textbox")[1], "0");
     await userEvent.click(screen.getByRole("button"));
 
     expect(
@@ -84,7 +84,7 @@ describe("Login page", () => {
     );
 
     await userEvent.type(screen.getAllByRole("textbox")[0], "ScubaDiver");
-    await userEvent.type(screen.getAllByRole("textbox")[1], "1");
+    await userEvent.type(screen.getAllByRole("textbox")[1], "0");
     await userEvent.click(screen.getByRole("button"));
 
     expect(

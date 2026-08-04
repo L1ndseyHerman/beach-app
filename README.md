@@ -12,15 +12,20 @@ Send it to the gh-pages branch that makes it live on GitHub pages:
 yarn build
 yarn deploy
 
-Note that you have to go to the url currently. For example, "/beach" can be found at
+The app can be found at
 
-http://localhost:5173/beach-app/#/beach
+http://localhost:5173/beach-app/#
 
 or
 
-https://l1ndseyherman.github.io/beach-app/#/beach
+https://l1ndseyherman.github.io/beach-app/#
 
-. Eventually, I want to make a login page that redirects there, but that won't be for awhile.
+online.
+
+Test users you can login as:
+
+Username: ScubaDiver
+Password: 0
 
 yarn test
 
