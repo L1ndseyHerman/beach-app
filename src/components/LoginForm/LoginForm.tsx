@@ -6,8 +6,13 @@ import { useState } from "react";
 export default function LoginForm() {
   const history = useHistory();
   const intl = useIntl();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const allowedUsername = "ScubaDiver";
+  const allowedPassword = "1";
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -15,7 +20,17 @@ export default function LoginForm() {
     console.log(
       "The username is: " + username + " and the password is: " + password,
     );
-    history.push("/beach");
+
+    if (username === allowedUsername && password === allowedPassword) {
+      history.push("/beach");
+    } else {
+      setErrorMessage(
+        intl.formatMessage({
+          id: "LoginForm.Error",
+          defaultMessage: "That username and/or password is not in our system.",
+        }),
+      );
+    }
   };
 
   return (
@@ -26,6 +41,7 @@ export default function LoginForm() {
           defaultMessage: "Login",
         })}
       </h1>
+      <p>{errorMessage}</p>
       <Box component="form" onSubmit={handleSubmit}>
         <TextField
           id="username"
