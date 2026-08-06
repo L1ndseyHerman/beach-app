@@ -26,7 +26,6 @@ export default function UserProfileDropdown({
   ];
 
   const handleChange = () => {
-    console.log("You clicked Logout!");
     handleLogout();
   };
 

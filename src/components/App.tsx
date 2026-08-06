@@ -27,46 +27,55 @@ export default function App() {
     setUser(null);
   };
 
-  console.log("The user is: " + user);
-
   const urls = ["/beach", "/shallow_ocean", "/deep_ocean", "/login"];
 
-  return (
-    <Switch>
-      <Route path={urls[0]}>
-        <>
-          <NavDropdown urls={urls} />
-          <UserProfileDropdown
-            username={user?.username ?? ""}
-            handleLogout={handleLogout}
-          />
-          <Beach />
-        </>
-      </Route>
-      <Route path={urls[1]}>
-        <>
-          <NavDropdown urls={urls} />
-          <UserProfileDropdown
-            username={user?.username ?? ""}
-            handleLogout={handleLogout}
-          />
-          <ShallowOcean />
-        </>
-      </Route>
-      <Route path={urls[2]}>
-        <>
-          <NavDropdown urls={urls} />
-          <UserProfileDropdown
-            username={user?.username ?? ""}
-            handleLogout={handleLogout}
-          />
-          <DeepOcean />
-        </>
-      </Route>
-      <Route path={urls[3]}>
-        <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
-      </Route>
-      <Redirect to={urls[3]} />
-    </Switch>
-  );
+  if (user === null) {
+    return (
+      <Switch>
+        <Route path={urls[3]}>
+          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        </Route>
+        <Redirect to={urls[3]} />
+      </Switch>
+    );
+  } else {
+    return (
+      <Switch>
+        <Route path={urls[0]}>
+          <>
+            <NavDropdown urls={urls} />
+            <UserProfileDropdown
+              username={user?.username ?? ""}
+              handleLogout={handleLogout}
+            />
+            <Beach />
+          </>
+        </Route>
+        <Route path={urls[1]}>
+          <>
+            <NavDropdown urls={urls} />
+            <UserProfileDropdown
+              username={user?.username ?? ""}
+              handleLogout={handleLogout}
+            />
+            <ShallowOcean />
+          </>
+        </Route>
+        <Route path={urls[2]}>
+          <>
+            <NavDropdown urls={urls} />
+            <UserProfileDropdown
+              username={user?.username ?? ""}
+              handleLogout={handleLogout}
+            />
+            <DeepOcean />
+          </>
+        </Route>
+        <Route path={urls[3]}>
+          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        </Route>
+        <Redirect to={urls[3]} />
+      </Switch>
+    );
+  }
 }
