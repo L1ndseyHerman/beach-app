@@ -2,36 +2,18 @@ import { Box, Button, TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
 import { useState } from "react";
+import type { User } from "../../constants";
 
-//  I have plans for this in the next commit or 2:
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Role = {
-  ScubaDiver: 0,
-  Swimmer: 1,
-  Mermaid: 2,
-} as const;
-
-interface User {
-  username: string;
-  password: string;
-  role: (typeof Role)[keyof typeof Role];
+interface LoginFormProps {
+  fakeUsers: User[];
 }
 
-export default function LoginForm() {
+export default function LoginForm({ fakeUsers }: LoginFormProps) {
   const history = useHistory();
   const intl = useIntl();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const fakeUsers: User[] = [
-    {
-      username: "ScubaDiver",
-      password: "0",
-      role: Role.ScubaDiver,
-    },
-  ];
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e: { preventDefault: () => void }) => {

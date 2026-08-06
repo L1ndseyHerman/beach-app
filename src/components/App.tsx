@@ -4,8 +4,17 @@ import ShallowOcean from "./ShallowOcean/ShallowOcean";
 import DeepOcean from "./DeepOcean/DeepOcean";
 import NavDropdown from "./NavDropdown/NavDropdown";
 import LoginForm from "./LoginForm/LoginForm";
+import { Role, type User } from "../constants";
 
 export default function App() {
+  const fakeUsers: User[] = [
+    {
+      username: "ScubaDiver",
+      password: "0",
+      role: Role.ScubaDiver,
+    },
+  ];
+
   const urls = ["/beach", "/shallow_ocean", "/deep_ocean", "/login"];
 
   return (
@@ -29,7 +38,7 @@ export default function App() {
         </>
       </Route>
       <Route path={urls[3]}>
-        <LoginForm />
+        <LoginForm fakeUsers={fakeUsers} />
       </Route>
       <Redirect to={urls[3]} />
     </Switch>

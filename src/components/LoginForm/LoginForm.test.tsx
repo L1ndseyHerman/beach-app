@@ -4,12 +4,21 @@ import LoginForm from "./LoginForm";
 import { IntlProvider } from "react-intl";
 import userEvent from "@testing-library/user-event";
 import { HashRouter } from "react-router-dom";
+import { Role, type User } from "../../constants";
+
+const fakeUsers: User[] = [
+  {
+    username: "ScubaDiver",
+    password: "0",
+    role: Role.ScubaDiver,
+  },
+];
 
 describe("Login page", () => {
   it("displays the 'Login' h1, the 'Username' and 'Password' inputs, and the 'Login' button, but not the error message right off the bat", () => {
     render(
       <IntlProvider locale={"en"}>
-        <LoginForm />
+        <LoginForm fakeUsers={fakeUsers} />
       </IntlProvider>,
     );
 
@@ -29,7 +38,7 @@ describe("Login page", () => {
   it("displays the error message if you click the button after typing in a wrong username", async () => {
     render(
       <IntlProvider locale={"en"}>
-        <LoginForm />
+        <LoginForm fakeUsers={fakeUsers} />
       </IntlProvider>,
     );
 
@@ -45,7 +54,7 @@ describe("Login page", () => {
   it("displays the error message if you click the button after typing in a wrong password", async () => {
     render(
       <IntlProvider locale={"en"}>
-        <LoginForm />
+        <LoginForm fakeUsers={fakeUsers} />
       </IntlProvider>,
     );
 
@@ -61,7 +70,7 @@ describe("Login page", () => {
   it("displays the error message if you click the button after typing in a wrong username AND a wrong password", async () => {
     render(
       <IntlProvider locale={"en"}>
-        <LoginForm />
+        <LoginForm fakeUsers={fakeUsers} />
       </IntlProvider>,
     );
 
@@ -78,7 +87,7 @@ describe("Login page", () => {
     render(
       <HashRouter>
         <IntlProvider locale={"en"}>
-          <LoginForm />
+          <LoginForm fakeUsers={fakeUsers} />
         </IntlProvider>
       </HashRouter>,
     );
