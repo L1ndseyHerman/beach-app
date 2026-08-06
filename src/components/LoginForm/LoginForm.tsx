@@ -6,9 +6,10 @@ import type { User } from "../../constants";
 
 interface LoginFormProps {
   fakeUsers: User[];
+  handleLogin: (user: User | null) => void;
 }
 
-export default function LoginForm({ fakeUsers }: LoginFormProps) {
+export default function LoginForm({ fakeUsers, handleLogin }: LoginFormProps) {
   const history = useHistory();
   const intl = useIntl();
 
@@ -18,20 +19,22 @@ export default function LoginForm({ fakeUsers }: LoginFormProps) {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log("You clicked the login button!");
     console.log(
       "The username is: " + username + " and the password is: " + password,
     );
 
     let isValidUser = false;
+    let theUser = null;
 
     for (const user of fakeUsers) {
       if (username === user.username && password === user.password) {
         isValidUser = true;
+        theUser = user;
       }
     }
 
     if (isValidUser) {
+      handleLogin(theUser);
       history.push("/beach");
     } else {
       setErrorMessage(

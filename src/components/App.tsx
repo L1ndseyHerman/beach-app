@@ -6,6 +6,7 @@ import NavDropdown from "./NavDropdown/NavDropdown";
 import LoginForm from "./LoginForm/LoginForm";
 import { Role, type User } from "../constants";
 import UserProfileDropdown from "./UserProfileDropdown/UserProfileDropdown";
+import { useState } from "react";
 
 export default function App() {
   const fakeUsers: User[] = [
@@ -15,6 +16,14 @@ export default function App() {
       role: Role.ScubaDiver,
     },
   ];
+
+  const [user, setUser] = useState<User | null>(null);
+
+  const handleLogin = (theUser: User | null) => {
+    setUser(theUser);
+  };
+
+  console.log("The user is: " + user);
 
   const urls = ["/beach", "/shallow_ocean", "/deep_ocean", "/login"];
 
@@ -42,7 +51,7 @@ export default function App() {
         </>
       </Route>
       <Route path={urls[3]}>
-        <LoginForm fakeUsers={fakeUsers} />
+        <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
       </Route>
       <Redirect to={urls[3]} />
     </Switch>
