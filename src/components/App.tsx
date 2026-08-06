@@ -5,6 +5,7 @@ import DeepOcean from "./DeepOcean/DeepOcean";
 import NavDropdown from "./NavDropdown/NavDropdown";
 import LoginForm from "./LoginForm/LoginForm";
 import { Role, type User } from "../constants";
+import UserProfileDropdown from "./UserProfileDropdown/UserProfileDropdown";
 
 export default function App() {
   const fakeUsers: User[] = [
@@ -22,18 +23,21 @@ export default function App() {
       <Route path={urls[0]}>
         <>
           <NavDropdown urls={urls} />
+          <UserProfileDropdown />
           <Beach />
         </>
       </Route>
       <Route path={urls[1]}>
         <>
           <NavDropdown urls={urls} />
+          <UserProfileDropdown />
           <ShallowOcean />
         </>
       </Route>
       <Route path={urls[2]}>
         <>
           <NavDropdown urls={urls} />
+          <UserProfileDropdown />
           <DeepOcean />
         </>
       </Route>

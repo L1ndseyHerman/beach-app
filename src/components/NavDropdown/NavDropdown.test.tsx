@@ -4,7 +4,7 @@ import NavDropdown from "./NavDropdown";
 import { HashRouter } from "react-router-dom";
 import { IntlProvider } from "react-intl";
 
-describe("NavDropdown page", () => {
+describe("NavDropdown", () => {
   it("displays the label text", () => {
     render(
       <HashRouter>

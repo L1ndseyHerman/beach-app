@@ -6,5 +6,7 @@
   "LoginForm.Login": "(es) Login",
   "LoginForm.ErrorMessage": "(es) That username and/or password is not in our system.",
   "LoginForm.Username": "Nombre del User",
-  "LoginForm.Password": "(es) Password"
+  "LoginForm.Password": "(es) Password",
+  "UserProfileDropdown.Welcome": "Bienvenida",
+  "UserProfileDropdown.Logout": "(es) Logout"
 }
