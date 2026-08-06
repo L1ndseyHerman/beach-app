@@ -32,21 +32,21 @@ export default function App() {
       <Route path={urls[0]}>
         <>
           <NavDropdown urls={urls} />
-          <UserProfileDropdown />
+          <UserProfileDropdown username={user?.username ?? ""} />
           <Beach />
         </>
       </Route>
       <Route path={urls[1]}>
         <>
           <NavDropdown urls={urls} />
-          <UserProfileDropdown />
+          <UserProfileDropdown username={user?.username ?? ""} />
           <ShallowOcean />
         </>
       </Route>
       <Route path={urls[2]}>
         <>
           <NavDropdown urls={urls} />
-          <UserProfileDropdown />
+          <UserProfileDropdown username={user?.username ?? ""} />
           <DeepOcean />
         </>
       </Route>

@@ -19,9 +19,6 @@ export default function LoginForm({ fakeUsers, handleLogin }: LoginFormProps) {
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    console.log(
-      "The username is: " + username + " and the password is: " + password,
-    );
 
     let isValidUser = false;
     let theUser = null;

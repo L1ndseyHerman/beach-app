@@ -7,9 +7,9 @@ describe("UserProfileDropdown", () => {
   it("displays the label text", () => {
     render(
       <IntlProvider locale={"en"}>
-        <UserProfileDropdown />
+        <UserProfileDropdown username="ScubaDiver" />
       </IntlProvider>,
     );
-    expect(screen.getByLabelText("Welcome fakeUser")).toBeVisible();
+    expect(screen.getByLabelText("Welcome ScubaDiver")).toBeVisible();
   });
 });

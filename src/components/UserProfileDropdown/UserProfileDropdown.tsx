@@ -2,7 +2,13 @@ import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { useIntl } from "react-intl";
 
-export default function UserProfileDropdown() {
+interface UserProfileDropdownProps {
+  username: string;
+}
+
+export default function UserProfileDropdown({
+  username,
+}: UserProfileDropdownProps) {
   const intl = useIntl();
 
   const options = [
@@ -26,7 +32,9 @@ export default function UserProfileDropdown() {
             intl.formatMessage({
               id: "UserProfileDropdown.Welcome",
               defaultMessage: "Welcome",
-            }) + " fakeUser"
+            }) +
+            " " +
+            username
           }
           variant="outlined"
         />
