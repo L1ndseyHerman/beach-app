@@ -1,13 +1,16 @@
 import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { useIntl } from "react-intl";
+import { Link } from "react-router-dom";
 
 interface UserProfileDropdownProps {
   username: string;
+  handleLogout: () => void;
 }
 
 export default function UserProfileDropdown({
   username,
+  handleLogout,
 }: UserProfileDropdownProps) {
   const intl = useIntl();
 
@@ -18,8 +21,14 @@ export default function UserProfileDropdown({
         id: "UserProfileDropdown.Logout",
         defaultMessage: "Logout",
       }),
+      url: "/login",
     },
   ];
+
+  const handleChange = () => {
+    console.log("You clicked Logout!");
+    handleLogout();
+  };
 
   return (
     <Autocomplete
@@ -39,7 +48,8 @@ export default function UserProfileDropdown({
           variant="outlined"
         />
       )}
-      renderOption={(option) => <p>{option.label}</p>}
+      renderOption={(option) => <Link to={option.url}>{option.label}</Link>}
+      onChange={handleChange}
     />
   );
 }

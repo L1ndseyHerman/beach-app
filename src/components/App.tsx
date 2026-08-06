@@ -23,6 +23,10 @@ export default function App() {
     setUser(theUser);
   };
 
+  const handleLogout = () => {
+    setUser(null);
+  };
+
   console.log("The user is: " + user);
 
   const urls = ["/beach", "/shallow_ocean", "/deep_ocean", "/login"];
@@ -32,21 +36,30 @@ export default function App() {
       <Route path={urls[0]}>
         <>
           <NavDropdown urls={urls} />
-          <UserProfileDropdown username={user?.username ?? ""} />
+          <UserProfileDropdown
+            username={user?.username ?? ""}
+            handleLogout={handleLogout}
+          />
           <Beach />
         </>
       </Route>
       <Route path={urls[1]}>
         <>
           <NavDropdown urls={urls} />
-          <UserProfileDropdown username={user?.username ?? ""} />
+          <UserProfileDropdown
+            username={user?.username ?? ""}
+            handleLogout={handleLogout}
+          />
           <ShallowOcean />
         </>
       </Route>
       <Route path={urls[2]}>
         <>
           <NavDropdown urls={urls} />
-          <UserProfileDropdown username={user?.username ?? ""} />
+          <UserProfileDropdown
+            username={user?.username ?? ""}
+            handleLogout={handleLogout}
+          />
           <DeepOcean />
         </>
       </Route>
