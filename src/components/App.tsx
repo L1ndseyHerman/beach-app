@@ -15,6 +15,11 @@ export default function App() {
       password: "0",
       role: Role.ScubaDiver,
     },
+    {
+      username: "Swimmer",
+      password: "1",
+      role: Role.Swimmer,
+    },
   ];
 
   const [user, setUser] = useState<User | null>(null);

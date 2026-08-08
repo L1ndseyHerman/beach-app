@@ -12,6 +12,11 @@ const fakeUsers: User[] = [
     password: "0",
     role: Role.ScubaDiver,
   },
+  {
+    username: "Swimmer",
+    password: "1",
+    role: Role.Swimmer,
+  },
 ];
 
 const handleLogin = vi.fn();
@@ -96,6 +101,24 @@ describe("Login page", () => {
 
     await userEvent.type(screen.getAllByRole("textbox")[0], "ScubaDiver");
     await userEvent.type(screen.getAllByRole("textbox")[1], "0");
+    await userEvent.click(screen.getByRole("button"));
+
+    expect(
+      screen.queryByText("That username and/or password is not in our system."),
+    ).not.toBeInTheDocument();
+  });
+
+  it("does not display the error message if you click the button after typing in a different right username and a right password", async () => {
+    render(
+      <HashRouter>
+        <IntlProvider locale={"en"}>
+          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        </IntlProvider>
+      </HashRouter>,
+    );
+
+    await userEvent.type(screen.getAllByRole("textbox")[0], "Swimmer");
+    await userEvent.type(screen.getAllByRole("textbox")[1], "1");
     await userEvent.click(screen.getByRole("button"));
 
     expect(
