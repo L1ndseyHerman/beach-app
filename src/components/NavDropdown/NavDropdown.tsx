@@ -45,7 +45,7 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
         url: urls[2],
       },
     ];
-  } else {
+  } else if (urls[0] === "/beach") {
     options = [
       {
         id: 0,
@@ -60,6 +60,25 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
         label: intl.formatMessage({
           id: "ShallowOcean.ShallowOcean",
           defaultMessage: "ShallowOcean",
+        }),
+        url: urls[1],
+      },
+    ];
+  } else {
+    options = [
+      {
+        id: 0,
+        label: intl.formatMessage({
+          id: "ShallowOcean.ShallowOcean",
+          defaultMessage: "ShallowOcean",
+        }),
+        url: urls[0],
+      },
+      {
+        id: 1,
+        label: intl.formatMessage({
+          id: "DeepOcean.DeepOcean",
+          defaultMessage: "DeepOcean",
         }),
         url: urls[1],
       },

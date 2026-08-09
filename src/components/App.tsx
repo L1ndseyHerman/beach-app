@@ -20,6 +20,11 @@ export default function App() {
       password: "1",
       role: Role.Swimmer,
     },
+    {
+      username: "Mermaid",
+      password: "2",
+      role: Role.Mermaid,
+    },
   ];
 
   const [user, setUser] = useState<User | null>(null);
@@ -34,6 +39,7 @@ export default function App() {
 
   const scubaDiverUrls = ["/beach", "/shallow_ocean", "/deep_ocean", "/login"];
   const swimmerUrls = ["/beach", "/shallow_ocean", "/login"];
+  const mermaidUrls = ["/shallow_ocean", "/deep_ocean", "/login"];
 
   if (user === null) {
     return (
@@ -110,6 +116,35 @@ export default function App() {
           <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </Route>
         <Redirect to={swimmerUrls[2]} />
+      </Switch>
+    );
+  } else if (user.role === Role.Mermaid) {
+    return (
+      <Switch>
+        <Route path={mermaidUrls[0]}>
+          <>
+            <NavDropdown urls={mermaidUrls} />
+            <UserProfileDropdown
+              username={user?.username ?? ""}
+              handleLogout={handleLogout}
+            />
+            <ShallowOcean />
+          </>
+        </Route>
+        <Route path={mermaidUrls[1]}>
+          <>
+            <NavDropdown urls={mermaidUrls} />
+            <UserProfileDropdown
+              username={user?.username ?? ""}
+              handleLogout={handleLogout}
+            />
+            <DeepOcean />
+          </>
+        </Route>
+        <Route path={mermaidUrls[2]}>
+          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        </Route>
+        <Redirect to={mermaidUrls[2]} />
       </Switch>
     );
   }

@@ -2,7 +2,7 @@ import { Box, Button, TextField } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
 import { useState } from "react";
-import type { User } from "../../constants";
+import { Role, type User } from "../../constants";
 
 interface LoginFormProps {
   fakeUsers: User[];
@@ -32,7 +32,11 @@ export default function LoginForm({ fakeUsers, handleLogin }: LoginFormProps) {
 
     if (isValidUser) {
       handleLogin(theUser);
-      history.push("/beach");
+      if (theUser!.role === Role.Mermaid) {
+        history.push("/deep_ocean");
+      } else {
+        history.push("/beach");
+      }
     } else {
       setErrorMessage(
         intl.formatMessage({

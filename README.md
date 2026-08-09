@@ -27,6 +27,12 @@ Test users you can login as:
 Username: ScubaDiver
 Password: 0
 
+Username: Swimmer
+Password: 1
+
+Username: Mermaid
+Password: 2
+
 yarn test
 
 also works now.
