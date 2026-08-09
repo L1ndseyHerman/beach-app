@@ -32,23 +32,24 @@ export default function App() {
     setUser(null);
   };
 
-  const urls = ["/beach", "/shallow_ocean", "/deep_ocean", "/login"];
+  const scubaDiverUrls = ["/beach", "/shallow_ocean", "/deep_ocean", "/login"];
+  const swimmerUrls = ["/beach", "/shallow_ocean", "/login"];
 
   if (user === null) {
     return (
       <Switch>
-        <Route path={urls[3]}>
+        <Route path={scubaDiverUrls[3]}>
           <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </Route>
-        <Redirect to={urls[3]} />
+        <Redirect to={scubaDiverUrls[3]} />
       </Switch>
     );
-  } else {
+  } else if (user.role === Role.ScubaDiver) {
     return (
       <Switch>
-        <Route path={urls[0]}>
+        <Route path={scubaDiverUrls[0]}>
           <>
-            <NavDropdown urls={urls} />
+            <NavDropdown urls={scubaDiverUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
@@ -56,9 +57,9 @@ export default function App() {
             <Beach />
           </>
         </Route>
-        <Route path={urls[1]}>
+        <Route path={scubaDiverUrls[1]}>
           <>
-            <NavDropdown urls={urls} />
+            <NavDropdown urls={scubaDiverUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
@@ -66,9 +67,9 @@ export default function App() {
             <ShallowOcean />
           </>
         </Route>
-        <Route path={urls[2]}>
+        <Route path={scubaDiverUrls[2]}>
           <>
-            <NavDropdown urls={urls} />
+            <NavDropdown urls={scubaDiverUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
@@ -76,10 +77,39 @@ export default function App() {
             <DeepOcean />
           </>
         </Route>
-        <Route path={urls[3]}>
+        <Route path={scubaDiverUrls[3]}>
           <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </Route>
-        <Redirect to={urls[3]} />
+        <Redirect to={scubaDiverUrls[3]} />
+      </Switch>
+    );
+  } else if (user.role === Role.Swimmer) {
+    return (
+      <Switch>
+        <Route path={swimmerUrls[0]}>
+          <>
+            <NavDropdown urls={swimmerUrls} />
+            <UserProfileDropdown
+              username={user?.username ?? ""}
+              handleLogout={handleLogout}
+            />
+            <Beach />
+          </>
+        </Route>
+        <Route path={swimmerUrls[1]}>
+          <>
+            <NavDropdown urls={swimmerUrls} />
+            <UserProfileDropdown
+              username={user?.username ?? ""}
+              handleLogout={handleLogout}
+            />
+            <ShallowOcean />
+          </>
+        </Route>
+        <Route path={swimmerUrls[2]}>
+          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        </Route>
+        <Redirect to={swimmerUrls[2]} />
       </Switch>
     );
   }

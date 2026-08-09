@@ -7,35 +7,64 @@ interface NavDropdownProps {
   urls: string[];
 }
 
+interface Options {
+  id: number;
+  label: string;
+  url: string;
+}
+
 export default function NavDropdown({ urls }: NavDropdownProps) {
   const intl = useIntl();
 
-  const options = [
-    {
-      id: 1,
-      label: intl.formatMessage({
-        id: "Beach.Beach",
-        defaultMessage: "Beach",
-      }),
-      url: urls[0],
-    },
-    {
-      id: 2,
-      label: intl.formatMessage({
-        id: "ShallowOcean.ShallowOcean",
-        defaultMessage: "ShallowOcean",
-      }),
-      url: urls[1],
-    },
-    {
-      id: 3,
-      label: intl.formatMessage({
-        id: "DeepOcean.DeepOcean",
-        defaultMessage: "DeepOcean",
-      }),
-      url: urls[2],
-    },
-  ];
+  let options: Options[];
+
+  if (urls.length === 4) {
+    options = [
+      {
+        id: 0,
+        label: intl.formatMessage({
+          id: "Beach.Beach",
+          defaultMessage: "Beach",
+        }),
+        url: urls[0],
+      },
+      {
+        id: 1,
+        label: intl.formatMessage({
+          id: "ShallowOcean.ShallowOcean",
+          defaultMessage: "ShallowOcean",
+        }),
+        url: urls[1],
+      },
+      {
+        id: 2,
+        label: intl.formatMessage({
+          id: "DeepOcean.DeepOcean",
+          defaultMessage: "DeepOcean",
+        }),
+        url: urls[2],
+      },
+    ];
+  } else {
+    options = [
+      {
+        id: 0,
+        label: intl.formatMessage({
+          id: "Beach.Beach",
+          defaultMessage: "Beach",
+        }),
+        url: urls[0],
+      },
+      {
+        id: 1,
+        label: intl.formatMessage({
+          id: "ShallowOcean.ShallowOcean",
+          defaultMessage: "ShallowOcean",
+        }),
+        url: urls[1],
+      },
+    ];
+  }
 
   return (
     <Autocomplete
