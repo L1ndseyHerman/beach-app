@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 interface UserProfileDropdownProps {
   username: string;
   handleLogout: () => void;
+  loginUrl: string;
 }
 
 export default function UserProfileDropdown({
   username,
   handleLogout,
+  loginUrl,
 }: UserProfileDropdownProps) {
   const intl = useIntl();
 
@@ -21,7 +23,7 @@ export default function UserProfileDropdown({
         id: "UserProfileDropdown.Logout",
         defaultMessage: "Logout",
       }),
-      url: "/login",
+      url: loginUrl,
     },
   ];
 

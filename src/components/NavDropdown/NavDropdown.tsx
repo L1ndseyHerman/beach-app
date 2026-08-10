@@ -18,7 +18,7 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
 
   let options: Options[];
 
-  if (urls.length === 4) {
+  if (urls.length === 3) {
     options = [
       {
         id: 0,

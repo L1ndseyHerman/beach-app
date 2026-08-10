@@ -37,17 +37,18 @@ export default function App() {
     setUser(null);
   };
 
-  const scubaDiverUrls = ["/beach", "/shallow_ocean", "/deep_ocean", "/login"];
-  const swimmerUrls = ["/beach", "/shallow_ocean", "/login"];
-  const mermaidUrls = ["/shallow_ocean", "/deep_ocean", "/login"];
+  const scubaDiverUrls = ["/beach", "/shallow_ocean", "/deep_ocean"];
+  const swimmerUrls = ["/beach", "/shallow_ocean"];
+  const mermaidUrls = ["/shallow_ocean", "/deep_ocean"];
+  const loginUrl = "/login";
 
   if (user === null) {
     return (
       <Switch>
-        <Route path={scubaDiverUrls[3]}>
+        <Route path={loginUrl}>
           <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </Route>
-        <Redirect to={scubaDiverUrls[3]} />
+        <Redirect to={loginUrl} />
       </Switch>
     );
   } else if (user.role === Role.ScubaDiver) {
@@ -59,6 +60,7 @@ export default function App() {
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
+              loginUrl={loginUrl}
             />
             <Beach />
           </>
@@ -69,6 +71,7 @@ export default function App() {
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
+              loginUrl={loginUrl}
             />
             <ShallowOcean />
           </>
@@ -79,14 +82,15 @@ export default function App() {
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
+              loginUrl={loginUrl}
             />
             <DeepOcean />
           </>
         </Route>
-        <Route path={scubaDiverUrls[3]}>
+        <Route path={loginUrl}>
           <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </Route>
-        <Redirect to={scubaDiverUrls[3]} />
+        <Redirect to={loginUrl} />
       </Switch>
     );
   } else if (user.role === Role.Swimmer) {
@@ -98,6 +102,7 @@ export default function App() {
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
+              loginUrl={loginUrl}
             />
             <Beach />
           </>
@@ -108,14 +113,15 @@ export default function App() {
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
+              loginUrl={loginUrl}
             />
             <ShallowOcean />
           </>
         </Route>
-        <Route path={swimmerUrls[2]}>
+        <Route path={loginUrl}>
           <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </Route>
-        <Redirect to={swimmerUrls[2]} />
+        <Redirect to={loginUrl} />
       </Switch>
     );
   } else if (user.role === Role.Mermaid) {
@@ -127,6 +133,7 @@ export default function App() {
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
+              loginUrl={loginUrl}
             />
             <ShallowOcean />
           </>
@@ -137,14 +144,15 @@ export default function App() {
             <UserProfileDropdown
               username={user?.username ?? ""}
               handleLogout={handleLogout}
+              loginUrl={loginUrl}
             />
             <DeepOcean />
           </>
         </Route>
-        <Route path={mermaidUrls[2]}>
+        <Route path={loginUrl}>
           <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </Route>
-        <Redirect to={mermaidUrls[2]} />
+        <Redirect to={loginUrl} />
       </Switch>
     );
   }
