@@ -22,7 +22,7 @@ const fakeUsers: User[] = [
 const handleLogin = vi.fn();
 
 describe("LoginFormPage", () => {
-  it("displays the 'Login' h1, the 'Username' and 'Password' inputs, and the 'Login' button, but not the error message right off the bat", () => {
+  it("displays the 'Login' h1, the other website link, the 'Username' and 'Password' inputs, and the 'Login' button, but not the error message right off the bat", () => {
     render(
       <IntlProvider locale={"en"}>
         <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
@@ -30,6 +30,10 @@ describe("LoginFormPage", () => {
     );
 
     expect(screen.getAllByText("Login")[0]).toBeVisible();
+    expect(
+      screen.getByText("Looking for my other websites? Click"),
+    ).toBeVisible();
+    expect(screen.getByText("Here.")).toBeVisible();
     expect(
       screen.queryByText("That username and/or password is not in our system."),
     ).not.toBeInTheDocument();

@@ -58,6 +58,18 @@ export default function LoginFormPage({
           defaultMessage: "Login",
         })}
       </h1>
+      <p>
+        {intl.formatMessage({
+          id: "LoginForm.OtherWebsites",
+          defaultMessage: "Looking for my other websites? Click",
+        }) + " "}
+        <a href="https://l1ndseyherman.github.io/my-app/#/">
+          {intl.formatMessage({
+            id: "LoginForm.Here",
+            defaultMessage: "Here",
+          }) + "."}
+        </a>
+      </p>
       <p>{errorMessage}</p>
       <Box component="form" onSubmit={handleSubmit}>
         <TextField

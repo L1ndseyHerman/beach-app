@@ -4,6 +4,8 @@
   "DeepOcean.DeepOcean": "(es) Deep Ocean",
   "NavDropdown.SelectPage": "(es) Select a Page to View",
   "LoginForm.Login": "(es) Login",
+  "LoginForm.OtherWebsites": "(es) Looking for my other websites? Click",
+  "LoginForm.Here": "Aqui",
   "LoginForm.ErrorMessage": "(es) That username and/or password is not in our system.",
   "LoginForm.Username": "Nombre del User",
   "LoginForm.Password": "(es) Password",
