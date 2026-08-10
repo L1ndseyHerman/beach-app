@@ -1,14 +1,14 @@
 {
-  "Beach.Beach": "Playa",
-  "ShallowOcean.ShallowOcean": "(es) Shallow Ocean",
-  "DeepOcean.DeepOcean": "(es) Deep Ocean",
+  "BeachPage.Beach": "Playa",
+  "ShallowOceanPage.ShallowOcean": "(es) Shallow Ocean",
+  "DeepOceanPage.DeepOcean": "(es) Deep Ocean",
   "NavDropdown.SelectPage": "(es) Select a Page to View",
-  "LoginForm.Login": "(es) Login",
-  "LoginForm.OtherWebsites": "(es) Looking for my other websites? Click",
-  "LoginForm.Here": "Aqui",
-  "LoginForm.ErrorMessage": "(es) That username and/or password is not in our system.",
-  "LoginForm.Username": "Nombre del User",
-  "LoginForm.Password": "(es) Password",
+  "LoginFormPage.Login": "(es) Login",
+  "LoginFormPage.OtherWebsites": "(es) Looking for my other websites? Click",
+  "LoginFormPage.Here": "Aqui",
+  "LoginFormPage.ErrorMessage": "(es) That username and/or password is not in our system.",
+  "LoginFormPage.Username": "Nombre del User",
+  "LoginFormPage.Password": "(es) Password",
   "UserProfileDropdown.Welcome": "Bienvenida",
   "UserProfileDropdown.Logout": "(es) Logout"
 }

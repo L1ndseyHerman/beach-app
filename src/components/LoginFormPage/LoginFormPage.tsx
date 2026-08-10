@@ -43,7 +43,7 @@ export default function LoginFormPage({
     } else {
       setErrorMessage(
         intl.formatMessage({
-          id: "LoginForm.Error",
+          id: "LoginFormPage.Error",
           defaultMessage: "That username and/or password is not in our system.",
         }),
       );
@@ -54,18 +54,18 @@ export default function LoginFormPage({
     <>
       <h1>
         {intl.formatMessage({
-          id: "LoginForm.Login",
+          id: "LoginFormPage.Login",
           defaultMessage: "Login",
         })}
       </h1>
       <p>
         {intl.formatMessage({
-          id: "LoginForm.OtherWebsites",
+          id: "LoginFormPage.OtherWebsites",
           defaultMessage: "Looking for my other websites? Click",
         }) + " "}
         <a href="https://l1ndseyherman.github.io/my-app/#/">
           {intl.formatMessage({
-            id: "LoginForm.Here",
+            id: "LoginFormPage.Here",
             defaultMessage: "Here",
           }) + "."}
         </a>
@@ -75,7 +75,7 @@ export default function LoginFormPage({
         <TextField
           id="username"
           label={intl.formatMessage({
-            id: "LoginForm.Username",
+            id: "LoginFormPage.Username",
             defaultMessage: "Username",
           })}
           variant="outlined"
@@ -86,7 +86,7 @@ export default function LoginFormPage({
         <TextField
           id="password"
           label={intl.formatMessage({
-            id: "LoginForm.Password",
+            id: "LoginFormPage.Password",
             defaultMessage: "Password",
           })}
           variant="outlined"
@@ -96,7 +96,7 @@ export default function LoginFormPage({
         />
         <Button variant="contained" color="primary" type="submit">
           {intl.formatMessage({
-            id: "LoginForm.Login",
+            id: "LoginFormPage.Login",
             defaultMessage: "Login",
           })}
         </Button>

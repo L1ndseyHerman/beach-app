@@ -4,7 +4,7 @@ export default function ShallowOceanPage() {
   return (
     <h1>
       <FormattedMessage
-        id="ShallowOcean.ShallowOcean"
+        id="ShallowOceanPage.ShallowOcean"
         defaultMessage="Shallow Ocean"
       />
     </h1>

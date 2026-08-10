@@ -1,14 +1,14 @@
 {
-  "Beach.Beach": "Beach",
-  "ShallowOcean.ShallowOcean": "Shallow Ocean",
-  "DeepOcean.DeepOcean": "Deep Ocean",
+  "BeachPage.Beach": "Beach",
+  "ShallowOceanPage.ShallowOcean": "Shallow Ocean",
+  "DeepOceanPage.DeepOcean": "Deep Ocean",
   "NavDropdown.SelectPage": "Select a Page to View",
-  "LoginForm.Login": "Login",
-  "LoginForm.OtherWebsites": "Looking for my other websites? Click",
-  "LoginForm.Here": "Here",
-  "LoginForm.ErrorMessage": "That username and/or password is not in our system.",
-  "LoginForm.Username": "Username",
-  "LoginForm.Password": "Password",
+  "LoginFormPage.Login": "Login",
+  "LoginFormPage.OtherWebsites": "Looking for my other websites? Click",
+  "LoginFormPage.Here": "Here",
+  "LoginFormPage.ErrorMessage": "That username and/or password is not in our system.",
+  "LoginFormPage.Username": "Username",
+  "LoginFormPage.Password": "Password",
   "UserProfileDropdown.Welcome": "Welcome",
   "UserProfileDropdown.Logout": "Logout"
 }
