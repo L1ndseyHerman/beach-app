@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
-import LoginForm from "./LoginForm";
+import LoginFormPage from "./LoginFormPage";
 import { IntlProvider } from "react-intl";
 import userEvent from "@testing-library/user-event";
 import { HashRouter } from "react-router-dom";
@@ -21,11 +21,11 @@ const fakeUsers: User[] = [
 
 const handleLogin = vi.fn();
 
-describe("Login page", () => {
+describe("LoginFormPage", () => {
   it("displays the 'Login' h1, the 'Username' and 'Password' inputs, and the 'Login' button, but not the error message right off the bat", () => {
     render(
       <IntlProvider locale={"en"}>
-        <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
       </IntlProvider>,
     );
 
@@ -45,7 +45,7 @@ describe("Login page", () => {
   it("displays the error message if you click the button after typing in a wrong username", async () => {
     render(
       <IntlProvider locale={"en"}>
-        <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
       </IntlProvider>,
     );
 
@@ -61,7 +61,7 @@ describe("Login page", () => {
   it("displays the error message if you click the button after typing in a wrong password", async () => {
     render(
       <IntlProvider locale={"en"}>
-        <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
       </IntlProvider>,
     );
 
@@ -77,7 +77,7 @@ describe("Login page", () => {
   it("displays the error message if you click the button after typing in a wrong username AND a wrong password", async () => {
     render(
       <IntlProvider locale={"en"}>
-        <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
       </IntlProvider>,
     );
 
@@ -94,7 +94,7 @@ describe("Login page", () => {
     render(
       <HashRouter>
         <IntlProvider locale={"en"}>
-          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+          <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </IntlProvider>
       </HashRouter>,
     );
@@ -112,7 +112,7 @@ describe("Login page", () => {
     render(
       <HashRouter>
         <IntlProvider locale={"en"}>
-          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+          <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </IntlProvider>
       </HashRouter>,
     );

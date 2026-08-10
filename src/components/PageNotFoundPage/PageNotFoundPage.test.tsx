@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import PageNotFound from "./PageNotFound";
+import PageNotFoundPage from "./PageNotFoundPage";
 
-describe("PageNotFound page", () => {
+describe("PageNotFoundPage", () => {
   it("displays '404'", () => {
-    render(<PageNotFound />);
+    render(<PageNotFoundPage />);
     expect(screen.getByText("404")).toBeVisible();
   });
 });

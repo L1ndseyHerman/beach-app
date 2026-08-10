@@ -1,15 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import Beach from "./Beach";
+import DeepOceanPage from "./DeepOceanPage";
 import { IntlProvider } from "react-intl";
 
-describe("Beach page", () => {
-  it("displays 'beach'", () => {
+describe("DeepOceanPage", () => {
+  it("displays 'Deep Ocean'", () => {
     render(
       <IntlProvider locale={"en"}>
-        <Beach />
+        <DeepOceanPage />
       </IntlProvider>,
     );
-    expect(screen.getByText("Beach")).toBeVisible();
+    expect(screen.getByText("Deep Ocean")).toBeVisible();
   });
 });

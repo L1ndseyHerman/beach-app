@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import ShallowOcean from "./ShallowOcean";
+import ShallowOceanPage from "./ShallowOceanPage";
 import { IntlProvider } from "react-intl";
 
-describe("ShallowOcean page", () => {
+describe("ShallowOceanPage", () => {
   it("displays 'Shallow Ocean'", () => {
     render(
       <IntlProvider locale={"en"}>
-        <ShallowOcean />
+        <ShallowOceanPage />
       </IntlProvider>,
     );
     expect(screen.getByText("Shallow Ocean")).toBeVisible();

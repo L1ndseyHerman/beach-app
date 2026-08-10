@@ -1,6 +1,6 @@
 import { FormattedMessage } from "react-intl";
 
-export default function ShallowOcean() {
+export default function ShallowOceanPage() {
   return (
     <h1>
       <FormattedMessage

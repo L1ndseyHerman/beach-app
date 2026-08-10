@@ -1,13 +1,13 @@
 import { Redirect, Route, Switch } from "react-router-dom";
-import Beach from "./Beach/Beach";
-import ShallowOcean from "./ShallowOcean/ShallowOcean";
-import DeepOcean from "./DeepOcean/DeepOcean";
+import BeachPage from "./BeachPage/BeachPage";
+import ShallowOceanPage from "./ShallowOceanPage/ShallowOceanPage";
+import DeepOceanPage from "./DeepOceanPage/DeepOceanPage";
 import NavDropdown from "./NavDropdown/NavDropdown";
-import LoginForm from "./LoginForm/LoginForm";
+import LoginFormPage from "./LoginFormPage/LoginFormPage";
 import { Role, type User } from "../constants";
 import UserProfileDropdown from "./UserProfileDropdown/UserProfileDropdown";
 import { useState } from "react";
-import PageNotFound from "./PageNotFound/PageNotFound";
+import PageNotFoundPage from "./PageNotFoundPage/PageNotFoundPage";
 
 export default function App() {
   const fakeUsers: User[] = [
@@ -48,7 +48,7 @@ export default function App() {
     return (
       <Switch>
         <Route path={loginUrl}>
-          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+          <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
         </Route>
         <Redirect to={loginUrl} />
       </Switch>
@@ -64,7 +64,7 @@ export default function App() {
               handleLogout={handleLogout}
               loginUrl={loginUrl}
             />
-            <Beach />
+            <BeachPage />
           </>
         </Route>
         <Route path={scubaDiverUrls[1]}>
@@ -75,7 +75,7 @@ export default function App() {
               handleLogout={handleLogout}
               loginUrl={loginUrl}
             />
-            <ShallowOcean />
+            <ShallowOceanPage />
           </>
         </Route>
         <Route path={scubaDiverUrls[2]}>
@@ -86,7 +86,7 @@ export default function App() {
               handleLogout={handleLogout}
               loginUrl={loginUrl}
             />
-            <DeepOcean />
+            <DeepOceanPage />
           </>
         </Route>
         <Route path={pageNotFoundUrl}>
@@ -96,7 +96,7 @@ export default function App() {
             handleLogout={handleLogout}
             loginUrl={loginUrl}
           />
-          <PageNotFound />
+          <PageNotFoundPage />
         </Route>
         <Redirect to={pageNotFoundUrl} />
       </Switch>
@@ -112,7 +112,7 @@ export default function App() {
               handleLogout={handleLogout}
               loginUrl={loginUrl}
             />
-            <Beach />
+            <BeachPage />
           </>
         </Route>
         <Route path={swimmerUrls[1]}>
@@ -123,7 +123,7 @@ export default function App() {
               handleLogout={handleLogout}
               loginUrl={loginUrl}
             />
-            <ShallowOcean />
+            <ShallowOceanPage />
           </>
         </Route>
         <Route path={pageNotFoundUrl}>
@@ -133,7 +133,7 @@ export default function App() {
             handleLogout={handleLogout}
             loginUrl={loginUrl}
           />
-          <PageNotFound />
+          <PageNotFoundPage />
         </Route>
         <Redirect to={pageNotFoundUrl} />
       </Switch>
@@ -149,7 +149,7 @@ export default function App() {
               handleLogout={handleLogout}
               loginUrl={loginUrl}
             />
-            <ShallowOcean />
+            <ShallowOceanPage />
           </>
         </Route>
         <Route path={mermaidUrls[1]}>
@@ -160,7 +160,7 @@ export default function App() {
               handleLogout={handleLogout}
               loginUrl={loginUrl}
             />
-            <DeepOcean />
+            <DeepOceanPage />
           </>
         </Route>
         <Route path={pageNotFoundUrl}>
@@ -170,7 +170,7 @@ export default function App() {
             handleLogout={handleLogout}
             loginUrl={loginUrl}
           />
-          <PageNotFound />
+          <PageNotFoundPage />
         </Route>
         <Redirect to={pageNotFoundUrl} />
       </Switch>

@@ -4,12 +4,15 @@ import { useIntl } from "react-intl";
 import { useState } from "react";
 import { Role, type User } from "../../constants";
 
-interface LoginFormProps {
+interface LoginFormPageProps {
   fakeUsers: User[];
   handleLogin: (user: User | null) => void;
 }
 
-export default function LoginForm({ fakeUsers, handleLogin }: LoginFormProps) {
+export default function LoginFormPage({
+  fakeUsers,
+  handleLogin,
+}: LoginFormPageProps) {
   const history = useHistory();
   const intl = useIntl();
 
