@@ -7,6 +7,7 @@ import LoginForm from "./LoginForm/LoginForm";
 import { Role, type User } from "../constants";
 import UserProfileDropdown from "./UserProfileDropdown/UserProfileDropdown";
 import { useState } from "react";
+import PageNotFound from "./PageNotFound/PageNotFound";
 
 export default function App() {
   const fakeUsers: User[] = [
@@ -41,6 +42,7 @@ export default function App() {
   const swimmerUrls = ["/beach", "/shallow_ocean"];
   const mermaidUrls = ["/shallow_ocean", "/deep_ocean"];
   const loginUrl = "/login";
+  const pageNotFoundUrl = "/404";
 
   if (user === null) {
     return (
@@ -87,10 +89,16 @@ export default function App() {
             <DeepOcean />
           </>
         </Route>
-        <Route path={loginUrl}>
-          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        <Route path={pageNotFoundUrl}>
+          <NavDropdown urls={scubaDiverUrls} />
+          <UserProfileDropdown
+            username={user?.username ?? ""}
+            handleLogout={handleLogout}
+            loginUrl={loginUrl}
+          />
+          <PageNotFound />
         </Route>
-        <Redirect to={loginUrl} />
+        <Redirect to={pageNotFoundUrl} />
       </Switch>
     );
   } else if (user.role === Role.Swimmer) {
@@ -118,10 +126,16 @@ export default function App() {
             <ShallowOcean />
           </>
         </Route>
-        <Route path={loginUrl}>
-          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        <Route path={pageNotFoundUrl}>
+          <NavDropdown urls={swimmerUrls} />
+          <UserProfileDropdown
+            username={user?.username ?? ""}
+            handleLogout={handleLogout}
+            loginUrl={loginUrl}
+          />
+          <PageNotFound />
         </Route>
-        <Redirect to={loginUrl} />
+        <Redirect to={pageNotFoundUrl} />
       </Switch>
     );
   } else if (user.role === Role.Mermaid) {
@@ -149,10 +163,16 @@ export default function App() {
             <DeepOcean />
           </>
         </Route>
-        <Route path={loginUrl}>
-          <LoginForm fakeUsers={fakeUsers} handleLogin={handleLogin} />
+        <Route path={pageNotFoundUrl}>
+          <NavDropdown urls={mermaidUrls} />
+          <UserProfileDropdown
+            username={user?.username ?? ""}
+            handleLogout={handleLogout}
+            loginUrl={loginUrl}
+          />
+          <PageNotFound />
         </Route>
-        <Redirect to={loginUrl} />
+        <Redirect to={pageNotFoundUrl} />
       </Switch>
     );
   }
