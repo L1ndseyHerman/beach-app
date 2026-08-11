@@ -17,6 +17,11 @@ const fakeUsers: User[] = [
     password: "1",
     role: Role.Swimmer,
   },
+  {
+    username: "Mermaid",
+    password: "2",
+    role: Role.Mermaid,
+  },
 ];
 
 const handleLogin = vi.fn();
@@ -123,6 +128,49 @@ describe("LoginFormPage", () => {
 
     await userEvent.type(screen.getAllByRole("textbox")[0], "Swimmer");
     await userEvent.type(screen.getAllByRole("textbox")[1], "1");
+    await userEvent.click(screen.getByRole("button"));
+
+    expect(
+      screen.queryByText("That username and/or password is not in our system."),
+    ).not.toBeInTheDocument();
+  });
+
+  //  If this were a real app, I would test a wider variety of potential props
+  //  that could be passed in. However, since it's just me working on this app,
+  //  and I'm not planning to pass in any other fakeUsers than the
+  //  1 array in App.tsx, I'm just writing this single test for differentFakeUsers.
+  it("does not display the error message if you click the button after typing in a different right username and a right password, different props", async () => {
+    const differentFakeUsers: User[] = [
+      {
+        username: "IronMan",
+        password: "a",
+        role: Role.ScubaDiver,
+      },
+      {
+        username: "SpiderMan",
+        password: "b",
+        role: Role.Swimmer,
+      },
+      {
+        username: "BlackWidow",
+        password: "c",
+        role: Role.Mermaid,
+      },
+    ];
+
+    render(
+      <HashRouter>
+        <IntlProvider locale={"en"}>
+          <LoginFormPage
+            fakeUsers={differentFakeUsers}
+            handleLogin={handleLogin}
+          />
+        </IntlProvider>
+      </HashRouter>,
+    );
+
+    await userEvent.type(screen.getAllByRole("textbox")[0], "IronMan");
+    await userEvent.type(screen.getAllByRole("textbox")[1], "a");
     await userEvent.click(screen.getByRole("button"));
 
     expect(
