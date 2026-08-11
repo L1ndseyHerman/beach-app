@@ -47,3 +47,6 @@ NVM: 1.2.2
 Node: 22.13.0 (currently, have others on my NVM as well)
 NPM: 10.9.2
 Yarn: 1.22.22 (it uses that corepack thing if that matters?)
+
+Note to self, don't forget to only use colors on here!
+https://htmlcolorcodes.com/color-chart/web-safe-color-chart/

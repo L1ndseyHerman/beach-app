@@ -12,8 +12,17 @@ import { Role, type User } from "../../constants";
 
 const useStyles = makeStyles(() =>
   createStyles({
-    pageTitle: {
+    text: {
       fontFamily: "Arial",
+    },
+    link: {
+      textDecoration: "none",
+      color: "#000000",
+      fontWeight: 600,
+    },
+    errorMessage: {
+      //  Left-most Tomato red on https://htmlcolorcodes.com/color-chart/web-safe-color-chart/
+      color: "#CC3300",
     },
   }),
 );
@@ -67,25 +76,30 @@ export default function LoginFormPage({
 
   return (
     <>
-      <h1 className={classes.pageTitle}>
+      <h1 className={classes.text}>
         {intl.formatMessage({
           id: "LoginFormPage.Login",
           defaultMessage: "Login",
         })}
       </h1>
-      <p>
+      <p className={classes.text}>
         {intl.formatMessage({
           id: "LoginFormPage.OtherWebsites",
           defaultMessage: "Looking for my other websites? Click",
         }) + " "}
-        <a href="https://l1ndseyherman.github.io/my-app/#/">
+        <a
+          href="https://l1ndseyherman.github.io/my-app/#/"
+          className={classes.link}
+        >
           {intl.formatMessage({
             id: "LoginFormPage.Here",
             defaultMessage: "Here",
           }) + "."}
         </a>
       </p>
-      <p>{errorMessage}</p>
+      <p className={`${classes.text} ${classes.errorMessage}`}>
+        {errorMessage}
+      </p>
       <Box component="form" onSubmit={handleSubmit}>
         <TextField
           id="username"
