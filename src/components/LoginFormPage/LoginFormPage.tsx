@@ -1,8 +1,22 @@
-import { Box, Button, TextField } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  createStyles,
+  makeStyles,
+  TextField,
+} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
 import { useState } from "react";
 import { Role, type User } from "../../constants";
+
+const useStyles = makeStyles(() =>
+  createStyles({
+    pageTitle: {
+      fontFamily: "Arial",
+    },
+  }),
+);
 
 interface LoginFormPageProps {
   fakeUsers: User[];
@@ -15,6 +29,7 @@ export default function LoginFormPage({
 }: LoginFormPageProps) {
   const history = useHistory();
   const intl = useIntl();
+  const classes = useStyles();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -52,7 +67,7 @@ export default function LoginFormPage({
 
   return (
     <>
-      <h1>
+      <h1 className={classes.pageTitle}>
         {intl.formatMessage({
           id: "LoginFormPage.Login",
           defaultMessage: "Login",
