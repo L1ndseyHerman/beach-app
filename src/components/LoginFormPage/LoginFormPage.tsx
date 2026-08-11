@@ -24,6 +24,10 @@ const useStyles = makeStyles(() =>
       //  Left-most Tomato red on https://htmlcolorcodes.com/color-chart/web-safe-color-chart/
       color: "#CC3300",
     },
+    form: {
+      display: "flex",
+      flexDirection: "column",
+    },
   }),
 );
 
@@ -100,7 +104,7 @@ export default function LoginFormPage({
       <p className={`${classes.text} ${classes.errorMessage}`}>
         {errorMessage}
       </p>
-      <Box component="form" onSubmit={handleSubmit}>
+      <Box component="form" onSubmit={handleSubmit} className={classes.form}>
         <TextField
           id="username"
           label={intl.formatMessage({

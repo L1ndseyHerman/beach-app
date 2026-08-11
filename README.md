@@ -14,11 +14,11 @@ yarn deploy
 
 The app can be found at
 
-http://localhost:5173/beach-app/#
+http://localhost:5173/beach-app
 
 or
 
-https://l1ndseyherman.github.io/beach-app/#
+https://l1ndseyherman.github.io/beach-app
 
 online.
 
