@@ -12,8 +12,22 @@ import { Role, type User } from "../../constants";
 
 const useStyles = makeStyles(() =>
   createStyles({
+    outerDiv: {
+      display: "flex",
+      justifyContent: "center",
+    },
+    innerDiv: {
+      //  Middle-ish blue on the Honeydew: https://htmlcolorcodes.com/color-chart/web-safe-color-chart/
+      border: "2px solid #66FFFF",
+      borderRadius: "4px",
+      width: "550px",
+      paddingLeft: "50px",
+      paddingRight: "50px",
+      paddingBottom: "50px",
+    },
     text: {
       fontFamily: "Arial",
+      textAlign: "center",
     },
     link: {
       textDecoration: "none",
@@ -27,6 +41,7 @@ const useStyles = makeStyles(() =>
     form: {
       display: "flex",
       flexDirection: "column",
+      gap: "20px",
     },
   }),
 );
@@ -79,61 +94,63 @@ export default function LoginFormPage({
   };
 
   return (
-    <>
-      <h1 className={classes.text}>
-        {intl.formatMessage({
-          id: "LoginFormPage.Login",
-          defaultMessage: "Login",
-        })}
-      </h1>
-      <p className={classes.text}>
-        {intl.formatMessage({
-          id: "LoginFormPage.OtherWebsites",
-          defaultMessage: "Looking for my other websites? Click",
-        }) + " "}
-        <a
-          href="https://l1ndseyherman.github.io/my-app/#/"
-          className={classes.link}
-        >
-          {intl.formatMessage({
-            id: "LoginFormPage.Here",
-            defaultMessage: "Here",
-          }) + "."}
-        </a>
-      </p>
-      <p className={`${classes.text} ${classes.errorMessage}`}>
-        {errorMessage}
-      </p>
-      <Box component="form" onSubmit={handleSubmit} className={classes.form}>
-        <TextField
-          id="username"
-          label={intl.formatMessage({
-            id: "LoginFormPage.Username",
-            defaultMessage: "Username",
-          })}
-          variant="outlined"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setUsername(e.target.value)
-          }
-        />
-        <TextField
-          id="password"
-          label={intl.formatMessage({
-            id: "LoginFormPage.Password",
-            defaultMessage: "Password",
-          })}
-          variant="outlined"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setPassword(e.target.value)
-          }
-        />
-        <Button variant="contained" color="primary" type="submit">
+    <div className={classes.outerDiv}>
+      <div className={classes.innerDiv}>
+        <h1 className={classes.text}>
           {intl.formatMessage({
             id: "LoginFormPage.Login",
             defaultMessage: "Login",
           })}
-        </Button>
-      </Box>
-    </>
+        </h1>
+        <p className={classes.text}>
+          {intl.formatMessage({
+            id: "LoginFormPage.OtherWebsites",
+            defaultMessage: "Looking for my other websites? Click",
+          }) + " "}
+          <a
+            href="https://l1ndseyherman.github.io/my-app/#/"
+            className={classes.link}
+          >
+            {intl.formatMessage({
+              id: "LoginFormPage.Here",
+              defaultMessage: "Here",
+            }) + "."}
+          </a>
+        </p>
+        <p className={`${classes.text} ${classes.errorMessage}`}>
+          {errorMessage}
+        </p>
+        <Box component="form" onSubmit={handleSubmit} className={classes.form}>
+          <TextField
+            id="username"
+            label={intl.formatMessage({
+              id: "LoginFormPage.Username",
+              defaultMessage: "Username",
+            })}
+            variant="outlined"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setUsername(e.target.value)
+            }
+          />
+          <TextField
+            id="password"
+            label={intl.formatMessage({
+              id: "LoginFormPage.Password",
+              defaultMessage: "Password",
+            })}
+            variant="outlined"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setPassword(e.target.value)
+            }
+          />
+          <Button variant="contained" color="primary" type="submit">
+            {intl.formatMessage({
+              id: "LoginFormPage.Login",
+              defaultMessage: "Login",
+            })}
+          </Button>
+        </Box>
+      </div>
+    </div>
   );
 }
