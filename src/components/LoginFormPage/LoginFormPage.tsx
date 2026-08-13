@@ -4,13 +4,14 @@ import {
   createStyles,
   makeStyles,
   TextField,
+  type Theme,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { useIntl } from "react-intl";
 import { useState } from "react";
 import { Role, type User } from "../../constants";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     outerDiv: {
       display: "flex",
@@ -24,6 +25,11 @@ const useStyles = makeStyles(() =>
       paddingLeft: "50px",
       paddingRight: "50px",
       paddingBottom: "50px",
+      //  For ppl unfamiliar w the "xs" breakpoint, 600px wide is still desktop, 599 is mobile.
+      [theme.breakpoints.down("xs")]: {
+        border: "none",
+        width: "auto",
+      },
     },
     text: {
       fontFamily: "Arial",
