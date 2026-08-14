@@ -49,6 +49,10 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: "column",
       gap: "20px",
     },
+    button: {
+      textTransform: "none",
+      fontWeight: 600,
+    },
   }),
 );
 
@@ -149,7 +153,12 @@ export default function LoginFormPage({
               setPassword(e.target.value)
             }
           />
-          <Button variant="contained" color="primary" type="submit">
+          <Button
+            variant="contained"
+            color="primary"
+            type="submit"
+            className={`${classes.text} ${classes.button}`}
+          >
             {intl.formatMessage({
               id: "LoginFormPage.Login",
               defaultMessage: "Login",
