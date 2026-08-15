@@ -1,11 +1,15 @@
-describe("temporary login page test", () => {
-  it("says login", () => {
-    cy.visit("http://localhost:5173/beach-app/#/login");
+describe("logged-out-state", () => {
+  it("redirests from the base url to the LoginPageForm with the correct elements and text", () => {
+    cy.visit("http://localhost:5173/beach-app");
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
 
     cy.get("h1").should("have.text", "Login").should("be.visible");
+
     cy.get("p")
       .should("have.text", "Looking for my other websites? Click Here.")
       .should("be.visible");
+
     cy.get("a").should("have.text", "Here.").should("be.visible");
 
     cy.contains("That username and/or password is not in our system.").should(
