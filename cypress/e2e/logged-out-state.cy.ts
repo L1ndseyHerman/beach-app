@@ -1,4 +1,6 @@
 describe("logged-out-state", () => {
+  //  This is kind of like the first test in LoginFormPage.test.tsx,
+  //  with the addition of testing the redirect, which can't be tested in Vitest.
   it("redirests from the base url to the LoginPageForm with the correct elements and text", () => {
     cy.visit("http://localhost:5173/beach-app");
 
@@ -29,5 +31,25 @@ describe("logged-out-state", () => {
       .should("have.text", "Login")
       .should("be.visible")
       .should("be.enabled");
+  });
+
+  //  So in Vitest I test multiple ways to get the error message,
+  //  since that's the place to go way into detail with a component.
+  //  Here, I'm just testing 1 way:
+  it("displays the error message if you click the button after typing in a wrong username and/or password", () => {
+    cy.visit("http://localhost:5173/beach-app");
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
+
+    cy.get("input").eq(0).type("Fake");
+    cy.get("input").eq(1).type("-1");
+    cy.get("button").click();
+
+    cy.get("p")
+      .eq(1)
+      .should(
+        "have.text",
+        "That username and/or password is not in our system.",
+      )
+      .should("be.visible");
   });
 });
