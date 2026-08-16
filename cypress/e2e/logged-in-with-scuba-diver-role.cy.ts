@@ -1,5 +1,5 @@
 describe("logged-in-with-scuba-diver-role", () => {
-  it("redirests to the beach page", () => {
+  it("redirects to the /beach page", () => {
     cy.visit("http://localhost:5173/beach-app");
     cy.url().should("equal", "http://localhost:5173/beach-app#/login");
 

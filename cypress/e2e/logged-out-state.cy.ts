@@ -1,7 +1,7 @@
 describe("logged-out-state", () => {
   //  This is kind of like the first test in LoginFormPage.test.tsx,
   //  with the addition of testing the redirect, which can't be tested in Vitest.
-  it("redirests from the base url to /login and the LoginPageForm has the correct elements and text", () => {
+  it("redirects from the base url to /login and the LoginPageForm has the correct elements and text", () => {
     cy.visit("http://localhost:5173/beach-app");
 
     cy.url().should("equal", "http://localhost:5173/beach-app#/login");
