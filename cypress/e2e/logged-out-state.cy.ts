@@ -1,7 +1,7 @@
 describe("logged-out-state", () => {
   //  This is kind of like the first test in LoginFormPage.test.tsx,
   //  with the addition of testing the redirect, which can't be tested in Vitest.
-  it("redirests from the base url to the LoginPageForm with the correct elements and text", () => {
+  it("redirests from the base url to /login and the LoginPageForm has the correct elements and text", () => {
     cy.visit("http://localhost:5173/beach-app");
 
     cy.url().should("equal", "http://localhost:5173/beach-app#/login");
@@ -33,6 +33,16 @@ describe("logged-out-state", () => {
       .should("be.enabled");
   });
 
+  //  This can't be tested in Vitest at all, glad I can test it here :)
+  it("has a working link to my other website", () => {
+    cy.visit("http://localhost:5173/beach-app");
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
+
+    cy.get("a").click();
+
+    cy.url().should("equal", "https://l1ndseyherman.github.io/my-app/#/");
+  });
+
   //  So in Vitest I test multiple ways to get the error message,
   //  since that's the place to go way into detail with a component.
   //  Here, I'm just testing 1 way:
@@ -51,5 +61,12 @@ describe("logged-out-state", () => {
         "That username and/or password is not in our system.",
       )
       .should("be.visible");
+  });
+
+  //  This can't be tested in Vitest at all, glad I can test it here :)
+  it("will redirect you back to /login if you try to access a logged-in page", () => {
+    cy.visit("http://localhost:5173/beach-app#/shallow_ocean");
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
   });
 });
