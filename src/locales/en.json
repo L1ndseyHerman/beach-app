@@ -10,5 +10,6 @@
   "LoginFormPage.Username": "Username",
   "LoginFormPage.Password": "Password",
   "UserProfileDropdown.Welcome": "Welcome",
-  "UserProfileDropdown.Logout": "Logout"
+  "UserProfileDropdown.Logout": "Logout",
+  "PageNotFoundPage.NotFound": "Aww snap, the page you are looking for doesn't exist!"
 }

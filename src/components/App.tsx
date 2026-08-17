@@ -90,12 +90,6 @@ export default function App() {
           </>
         </Route>
         <Route path={pageNotFoundUrl}>
-          <NavDropdown urls={scubaDiverUrls} />
-          <UserProfileDropdown
-            username={user?.username ?? ""}
-            handleLogout={handleLogout}
-            loginUrl={loginUrl}
-          />
           <PageNotFoundPage />
         </Route>
         <Redirect to={pageNotFoundUrl} />
@@ -127,12 +121,6 @@ export default function App() {
           </>
         </Route>
         <Route path={pageNotFoundUrl}>
-          <NavDropdown urls={swimmerUrls} />
-          <UserProfileDropdown
-            username={user?.username ?? ""}
-            handleLogout={handleLogout}
-            loginUrl={loginUrl}
-          />
           <PageNotFoundPage />
         </Route>
         <Redirect to={pageNotFoundUrl} />
@@ -164,12 +152,6 @@ export default function App() {
           </>
         </Route>
         <Route path={pageNotFoundUrl}>
-          <NavDropdown urls={mermaidUrls} />
-          <UserProfileDropdown
-            username={user?.username ?? ""}
-            handleLogout={handleLogout}
-            loginUrl={loginUrl}
-          />
           <PageNotFoundPage />
         </Route>
         <Redirect to={pageNotFoundUrl} />
