@@ -98,55 +98,49 @@ Yarn: 1.22.22 (it uses that corepack thing if that matters?)
 
 ## How to Run this App Locally if you Want to
 
-## Remove Me!
+I've been writing this app in VS Code, which was our IDE of choice at ShiftKey for frontend apps.
+We used Azure (ADO) at ShiftKey where there's a "Clone in VS Code" button. Looks like there's
+not exactly that on GitHub, but if you click on my beach-app repo, then click on the green "Code"
+button, there's a "Download ZIP". You can download it, extract all the files, then open up
+VS Code, go to "File" in the top right, and choose the folder with the extracted files to open.
 
-ReadMe in-progress too.
+After that, you'll want to go to the "View" at the top of VS Code and open a Terminal.
+Once the terminal is booted up, type "yarn install". That'll install the node_modules.
 
-Run Locally:
-yarn dev
+After they install, you might want to close out of VS Code and reopen it. I've had problems in the past
+both in this app and ones at ShiftKey where if I open a component, it might have red squigglies
+and say things aren't installed. They are. Closing out of VS Code and reopening it seems to
+get it to finally notice they've been installed.
 
-Send it to the master branch:
-Normal Git committing stuff
-
-Send it to the gh-pages branch that makes it live on GitHub pages:
-yarn build
-yarn deploy
-
-The app can be found at
-
+After that, you're ready to run the app! To run it, type "yarn dev".
+Once it's booted up, it should let you know it's available at
 http://localhost:5173/beach-app
+You can then go there in your favorite web browser.
 
-or
+If you want to try out the Vitest tests, shut the app down (Ctrl + C), then "yarn test".
+They just kinda run in the terminal and let you know when they pass or fail.
 
+For Cypress tests, you'll want to start off by typing "yarn dev" in 1 terminal.
+Then, once the app is running, open a second terminal and type "npx cypress open".
+That'll open a Cypress test window. You'll want to choose the E2E Testing since
+I'm using Vitest for Component Testing not Cypress. Then you'll have to
+choose a browser, then manually run each test.
+Oh btw, I was having some issues where if I tried to run a test more than once in a certain browser,
+such as Chrome, it would get an error. So I've just been running them all in
+Electron, Cypress's own browser since it doesn't have that issue. I should google why
+it keeps happening for the other browsers tho.
+
+I'd like for this to be my app, so please don't push changes to it,
+but the way I've been pushing changes is standard Git committing stuff. There's a git icon
+on the left side of VS Code, and I just push the "+" button for all changes, click the commit button,
+and then the Sync. Easy!
+
+That just pushes it to the master branch tho, it doesn't deploy it. For that, I type "yarn build"
+in the terminal, wait until it's done, then type "yarn deploy" That's what sends it to
+the gh-pages branch, where after a few minutes, the changes go live at
 https://l1ndseyherman.github.io/beach-app
 
-online.
-
-Test users you can login as:
-
-Username: ScubaDiver
-Password: 0
-
-Username: Swimmer
-Password: 1
-
-Username: Mermaid
-Password: 2
-
-yarn test
-
-also works now.
-
-Also
-
-npx cypress open.
-
-Some versions I'm using that aren't specified in the project:
-
-NVM: 1.2.2
-Node: 22.13.0 (currently, have others on my NVM as well)
-NPM: 10.9.2
-Yarn: 1.22.22 (it uses that corepack thing if that matters?)
+## Remove Me!
 
 Note to self, don't forget to only use colors on here!
 https://htmlcolorcodes.com/color-chart/web-safe-color-chart/
