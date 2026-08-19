@@ -1,5 +1,17 @@
 # Beach App -- STILL IN PROGRESS!!
 
+## Test Users
+
+## Purpose of this App
+
+## My Older Websites
+
+## Things in this App that aren't in my Older Ones because I Learned them while Working at ShiftKey
+
+## Tenative Things I Might Add to this App if I have Time
+
+## How to Run this App Locally if you Want to
+
 ReadMe in-progress too.
 
 Run Locally:
