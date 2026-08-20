@@ -1,5 +1,21 @@
 # Beach App -- STILL IN PROGRESS!!
 
+## Table of Contents
+
+[Test Users](#test-users)
+
+[My Older Websites](#my-older-websites)
+
+[Purpose of THIS App](#purpose-of-this-app)
+
+[Things in this App that aren't in my Older Ones because I Learned them while Working at ShiftKey](#things-in-this-app-that-arent-in-my-older-ones-because-i-learned-them-while-working-at-shiftkey)
+
+[Things that aren't in this App](#things-that-arent-in-this-app)
+
+[Tenative Things I Might Add to this App if I have Time](#tenative-things-i-might-add-to-this-app-if-i-have-time)
+
+[How to Run this App Locally if you Want to](#how-to-run-this-app-locally-if-you-want-to)
+
 ## Test Users
 
 Chances are, if you're reading my ReadMe, it's because you went to
