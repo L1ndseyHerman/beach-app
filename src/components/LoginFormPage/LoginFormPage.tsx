@@ -31,10 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "auto",
       },
     },
-    text: {
-      fontFamily: "Arial",
-      textAlign: "center",
-    },
     link: {
       textDecoration: "none",
       color: "#000000",
@@ -106,13 +102,13 @@ export default function LoginFormPage({
   return (
     <div className={classes.outerDiv}>
       <div className={classes.innerDiv}>
-        <h1 className={classes.text}>
+        <h1>
           {intl.formatMessage({
             id: "LoginFormPage.Login",
             defaultMessage: "Login",
           })}
         </h1>
-        <p className={classes.text}>
+        <p>
           {intl.formatMessage({
             id: "LoginFormPage.OtherWebsites",
             defaultMessage: "Looking for my other websites? Click",
@@ -127,9 +123,7 @@ export default function LoginFormPage({
             }) + "."}
           </a>
         </p>
-        <p className={`${classes.text} ${classes.errorMessage}`}>
-          {errorMessage}
-        </p>
+        <p className={classes.errorMessage}>{errorMessage}</p>
         <Box component="form" onSubmit={handleSubmit} className={classes.form}>
           <TextField
             id="username"
@@ -157,7 +151,7 @@ export default function LoginFormPage({
             variant="contained"
             color="primary"
             type="submit"
-            className={`${classes.text} ${classes.button}`}
+            className={classes.button}
           >
             {intl.formatMessage({
               id: "LoginFormPage.Login",

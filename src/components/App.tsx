@@ -8,8 +8,20 @@ import { Role, type User } from "../constants";
 import UserProfileDropdown from "./UserProfileDropdown/UserProfileDropdown";
 import { useState } from "react";
 import PageNotFoundPage from "./PageNotFoundPage/PageNotFoundPage";
+import { createStyles, makeStyles } from "@material-ui/core";
+
+const useStyles = makeStyles(() =>
+  createStyles({
+    text: {
+      fontFamily: "Arial",
+      textAlign: "center",
+    },
+  }),
+);
 
 export default function App() {
+  const classes = useStyles();
+
   const fakeUsers: User[] = [
     {
       username: "ScubaDiver",
@@ -48,7 +60,9 @@ export default function App() {
     return (
       <Switch>
         <Route path={loginUrl}>
-          <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
+          <div className={classes.text}>
+            <LoginFormPage fakeUsers={fakeUsers} handleLogin={handleLogin} />
+          </div>
         </Route>
         <Redirect to={loginUrl} />
       </Switch>
@@ -57,7 +71,7 @@ export default function App() {
     return (
       <Switch>
         <Route path={scubaDiverUrls[0]}>
-          <>
+          <div className={classes.text}>
             <NavDropdown urls={scubaDiverUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
@@ -65,10 +79,10 @@ export default function App() {
               loginUrl={loginUrl}
             />
             <BeachPage />
-          </>
+          </div>
         </Route>
         <Route path={scubaDiverUrls[1]}>
-          <>
+          <div className={classes.text}>
             <NavDropdown urls={scubaDiverUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
@@ -76,10 +90,10 @@ export default function App() {
               loginUrl={loginUrl}
             />
             <ShallowOceanPage />
-          </>
+          </div>
         </Route>
         <Route path={scubaDiverUrls[2]}>
-          <>
+          <div className={classes.text}>
             <NavDropdown urls={scubaDiverUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
@@ -87,10 +101,12 @@ export default function App() {
               loginUrl={loginUrl}
             />
             <DeepOceanPage />
-          </>
+          </div>
         </Route>
         <Route path={pageNotFoundUrl}>
-          <PageNotFoundPage />
+          <div className={classes.text}>
+            <PageNotFoundPage />
+          </div>
         </Route>
         <Redirect to={pageNotFoundUrl} />
       </Switch>
@@ -99,7 +115,7 @@ export default function App() {
     return (
       <Switch>
         <Route path={swimmerUrls[0]}>
-          <>
+          <div className={classes.text}>
             <NavDropdown urls={swimmerUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
@@ -107,10 +123,10 @@ export default function App() {
               loginUrl={loginUrl}
             />
             <BeachPage />
-          </>
+          </div>
         </Route>
         <Route path={swimmerUrls[1]}>
-          <>
+          <div className={classes.text}>
             <NavDropdown urls={swimmerUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
@@ -118,10 +134,12 @@ export default function App() {
               loginUrl={loginUrl}
             />
             <ShallowOceanPage />
-          </>
+          </div>
         </Route>
         <Route path={pageNotFoundUrl}>
-          <PageNotFoundPage />
+          <div className={classes.text}>
+            <PageNotFoundPage />
+          </div>
         </Route>
         <Redirect to={pageNotFoundUrl} />
       </Switch>
@@ -130,7 +148,7 @@ export default function App() {
     return (
       <Switch>
         <Route path={mermaidUrls[0]}>
-          <>
+          <div className={classes.text}>
             <NavDropdown urls={mermaidUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
@@ -138,10 +156,10 @@ export default function App() {
               loginUrl={loginUrl}
             />
             <ShallowOceanPage />
-          </>
+          </div>
         </Route>
         <Route path={mermaidUrls[1]}>
-          <>
+          <div className={classes.text}>
             <NavDropdown urls={mermaidUrls} />
             <UserProfileDropdown
               username={user?.username ?? ""}
@@ -149,10 +167,12 @@ export default function App() {
               loginUrl={loginUrl}
             />
             <DeepOceanPage />
-          </>
+          </div>
         </Route>
         <Route path={pageNotFoundUrl}>
-          <PageNotFoundPage />
+          <div className={classes.text}>
+            <PageNotFoundPage />
+          </div>
         </Route>
         <Redirect to={pageNotFoundUrl} />
       </Switch>

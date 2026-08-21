@@ -21,10 +21,6 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "auto",
       },
     },
-    text: {
-      fontFamily: "Arial",
-      textAlign: "center",
-    },
     icon: {
       display: "block",
       marginLeft: "auto",
@@ -43,9 +39,9 @@ export default function PageNotFoundPage() {
   return (
     <div className={classes.outerDiv}>
       <div className={classes.innerDiv}>
-        <h1 className={classes.text}>404</h1>
+        <h1>404</h1>
         <LinkOff fontSize="large" className={classes.icon} />
-        <p className={`${classes.text} ${classes.paragraph}`}>
+        <p className={classes.paragraph}>
           <FormattedMessage
             id="PageNotFoundPage.NotFound"
             defaultMessage="Aww snap, the page you are looking for doesn't exist!"
