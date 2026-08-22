@@ -114,6 +114,7 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
       )}
       renderOption={(option) => <Link to={option.url}>{option.label}</Link>}
       className={classes.navDropdown}
+      disableClearable
     />
   );
 }

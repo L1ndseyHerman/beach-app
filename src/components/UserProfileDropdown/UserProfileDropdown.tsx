@@ -65,6 +65,7 @@ export default function UserProfileDropdown({
       renderOption={(option) => <Link to={option.url}>{option.label}</Link>}
       onChange={handleChange}
       className={classes.userProfileDropdown}
+      disableClearable
     />
   );
 }
