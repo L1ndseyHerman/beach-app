@@ -2,6 +2,7 @@ import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { useIntl } from "react-intl";
 import { Link } from "react-router-dom";
+import { createStyles, makeStyles, type Theme } from "@material-ui/core";
 
 interface UserProfileDropdownProps {
   username: string;
@@ -9,12 +10,24 @@ interface UserProfileDropdownProps {
   loginUrl: string;
 }
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    userProfileDropdown: {
+      width: "45%",
+      [theme.breakpoints.down("xs")]: {
+        width: "90%",
+      },
+    },
+  }),
+);
+
 export default function UserProfileDropdown({
   username,
   handleLogout,
   loginUrl,
 }: UserProfileDropdownProps) {
   const intl = useIntl();
+  const classes = useStyles();
 
   const options = [
     {
@@ -51,6 +64,7 @@ export default function UserProfileDropdown({
       )}
       renderOption={(option) => <Link to={option.url}>{option.label}</Link>}
       onChange={handleChange}
+      className={classes.userProfileDropdown}
     />
   );
 }

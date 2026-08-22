@@ -2,6 +2,7 @@ import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 import { Link } from "react-router-dom";
 import { useIntl } from "react-intl";
+import { createStyles, makeStyles, type Theme } from "@material-ui/core";
 
 interface NavDropdownProps {
   urls: string[];
@@ -13,8 +14,20 @@ interface Options {
   url: string;
 }
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    navDropdown: {
+      width: "45%",
+      [theme.breakpoints.down("xs")]: {
+        width: "90%",
+      },
+    },
+  }),
+);
+
 export default function NavDropdown({ urls }: NavDropdownProps) {
   const intl = useIntl();
+  const classes = useStyles();
 
   let options: Options[];
 
@@ -100,6 +113,7 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
         />
       )}
       renderOption={(option) => <Link to={option.url}>{option.label}</Link>}
+      className={classes.navDropdown}
     />
   );
 }

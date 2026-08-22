@@ -8,13 +8,24 @@ import { Role, type User } from "../constants";
 import UserProfileDropdown from "./UserProfileDropdown/UserProfileDropdown";
 import { useState } from "react";
 import PageNotFoundPage from "./PageNotFoundPage/PageNotFoundPage";
-import { createStyles, makeStyles } from "@material-ui/core";
+import { createStyles, makeStyles, type Theme } from "@material-ui/core";
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     text: {
       fontFamily: "Arial",
       textAlign: "center",
+    },
+    dropdownsDiv: {
+      paddingTop: "20px",
+      paddingBottom: "20px",
+      display: "flex",
+      justifyContent: "center",
+      gap: "20px",
+      [theme.breakpoints.down("xs")]: {
+        flexDirection: "column",
+        alignItems: "center",
+      },
     },
   }),
 );
@@ -72,34 +83,40 @@ export default function App() {
       <Switch>
         <Route path={scubaDiverUrls[0]}>
           <div className={classes.text}>
-            <NavDropdown urls={scubaDiverUrls} />
-            <UserProfileDropdown
-              username={user?.username ?? ""}
-              handleLogout={handleLogout}
-              loginUrl={loginUrl}
-            />
+            <div className={classes.dropdownsDiv}>
+              <NavDropdown urls={scubaDiverUrls} />
+              <UserProfileDropdown
+                username={user?.username ?? ""}
+                handleLogout={handleLogout}
+                loginUrl={loginUrl}
+              />
+            </div>
             <BeachPage />
           </div>
         </Route>
         <Route path={scubaDiverUrls[1]}>
           <div className={classes.text}>
-            <NavDropdown urls={scubaDiverUrls} />
-            <UserProfileDropdown
-              username={user?.username ?? ""}
-              handleLogout={handleLogout}
-              loginUrl={loginUrl}
-            />
+            <div className={classes.dropdownsDiv}>
+              <NavDropdown urls={scubaDiverUrls} />
+              <UserProfileDropdown
+                username={user?.username ?? ""}
+                handleLogout={handleLogout}
+                loginUrl={loginUrl}
+              />
+            </div>
             <ShallowOceanPage />
           </div>
         </Route>
         <Route path={scubaDiverUrls[2]}>
           <div className={classes.text}>
-            <NavDropdown urls={scubaDiverUrls} />
-            <UserProfileDropdown
-              username={user?.username ?? ""}
-              handleLogout={handleLogout}
-              loginUrl={loginUrl}
-            />
+            <div className={classes.dropdownsDiv}>
+              <NavDropdown urls={scubaDiverUrls} />
+              <UserProfileDropdown
+                username={user?.username ?? ""}
+                handleLogout={handleLogout}
+                loginUrl={loginUrl}
+              />
+            </div>
             <DeepOceanPage />
           </div>
         </Route>
@@ -116,23 +133,27 @@ export default function App() {
       <Switch>
         <Route path={swimmerUrls[0]}>
           <div className={classes.text}>
-            <NavDropdown urls={swimmerUrls} />
-            <UserProfileDropdown
-              username={user?.username ?? ""}
-              handleLogout={handleLogout}
-              loginUrl={loginUrl}
-            />
+            <div className={classes.dropdownsDiv}>
+              <NavDropdown urls={swimmerUrls} />
+              <UserProfileDropdown
+                username={user?.username ?? ""}
+                handleLogout={handleLogout}
+                loginUrl={loginUrl}
+              />
+            </div>
             <BeachPage />
           </div>
         </Route>
         <Route path={swimmerUrls[1]}>
           <div className={classes.text}>
-            <NavDropdown urls={swimmerUrls} />
-            <UserProfileDropdown
-              username={user?.username ?? ""}
-              handleLogout={handleLogout}
-              loginUrl={loginUrl}
-            />
+            <div className={classes.dropdownsDiv}>
+              <NavDropdown urls={swimmerUrls} />
+              <UserProfileDropdown
+                username={user?.username ?? ""}
+                handleLogout={handleLogout}
+                loginUrl={loginUrl}
+              />
+            </div>
             <ShallowOceanPage />
           </div>
         </Route>
@@ -149,23 +170,27 @@ export default function App() {
       <Switch>
         <Route path={mermaidUrls[0]}>
           <div className={classes.text}>
-            <NavDropdown urls={mermaidUrls} />
-            <UserProfileDropdown
-              username={user?.username ?? ""}
-              handleLogout={handleLogout}
-              loginUrl={loginUrl}
-            />
+            <div className={classes.dropdownsDiv}>
+              <NavDropdown urls={mermaidUrls} />
+              <UserProfileDropdown
+                username={user?.username ?? ""}
+                handleLogout={handleLogout}
+                loginUrl={loginUrl}
+              />
+            </div>
             <ShallowOceanPage />
           </div>
         </Route>
         <Route path={mermaidUrls[1]}>
           <div className={classes.text}>
-            <NavDropdown urls={mermaidUrls} />
-            <UserProfileDropdown
-              username={user?.username ?? ""}
-              handleLogout={handleLogout}
-              loginUrl={loginUrl}
-            />
+            <div className={classes.dropdownsDiv}>
+              <NavDropdown urls={mermaidUrls} />
+              <UserProfileDropdown
+                username={user?.username ?? ""}
+                handleLogout={handleLogout}
+                loginUrl={loginUrl}
+              />
+            </div>
             <DeepOceanPage />
           </div>
         </Route>
