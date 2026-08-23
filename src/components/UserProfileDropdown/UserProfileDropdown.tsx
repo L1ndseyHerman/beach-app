@@ -84,6 +84,7 @@ export default function UserProfileDropdown({
       className={classes.userProfileDropdown}
       classes={{ option: classes.option }}
       disableClearable
+      getOptionSelected={(option, value) => option.id === value.id}
     />
   );
 }

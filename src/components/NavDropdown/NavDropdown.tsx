@@ -133,6 +133,7 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
       className={classes.navDropdown}
       classes={{ option: classes.option }}
       disableClearable
+      getOptionSelected={(option, value) => option.id === value.id}
     />
   );
 }
