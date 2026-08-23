@@ -22,6 +22,19 @@ const useStyles = makeStyles((theme: Theme) =>
         width: "90%",
       },
     },
+    option: {
+      padding: "0px",
+    },
+    link: {
+      textDecoration: "none",
+      color: "#000000",
+      display: "block",
+      width: "100%",
+      paddingTop: "6px",
+      paddingLeft: "16px",
+      paddingRight: "16px",
+      paddingBottom: "6px",
+    },
   }),
 );
 
@@ -112,8 +125,13 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
           variant="outlined"
         />
       )}
-      renderOption={(option) => <Link to={option.url}>{option.label}</Link>}
+      renderOption={(option) => (
+        <Link to={option.url} className={classes.link}>
+          {option.label}
+        </Link>
+      )}
       className={classes.navDropdown}
+      classes={{ option: classes.option }}
       disableClearable
     />
   );
