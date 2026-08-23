@@ -139,6 +139,14 @@ Yarn: 1.22.22 (it uses that corepack thing if that matters?)
    I can look back at this code and remember.
 5. Redis. We used a Redis cache for some things at ShiftKey. I won't be using it here, I
    barely understood it.
+6. Cypress fixtures. I wrote many Cypress fixtures to mock data that
+   would come in from the backend apps at ShiftKey. Since this app doesn't have a backend,
+   I won't be writing them here. I did leave the example.json that Cypress auto-generated,
+   though it's not used in any tests.
+7. Cypress commands. While I didn't write any myself while at ShiftKey, I did make use of some
+   that other ppl wrote, mainly the ones for logging in as a certain role.
+   For example, things like "loginAsSwimmer()", etc. I didn't bother with them here
+   since there's not that many tests.
 
 ## Tenative Things I Might Add to this App if I have Time
 
