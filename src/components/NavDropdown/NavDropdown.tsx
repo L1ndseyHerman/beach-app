@@ -49,7 +49,7 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
       {
         id: 0,
         label: intl.formatMessage({
-          id: "Beach.Beach",
+          id: "BeachPage.Beach",
           defaultMessage: "Beach",
         }),
         url: urls[0],
@@ -57,16 +57,16 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
       {
         id: 1,
         label: intl.formatMessage({
-          id: "ShallowOcean.ShallowOcean",
-          defaultMessage: "ShallowOcean",
+          id: "ShallowOceanPage.ShallowOcean",
+          defaultMessage: "Shallow Ocean",
         }),
         url: urls[1],
       },
       {
         id: 2,
         label: intl.formatMessage({
-          id: "DeepOcean.DeepOcean",
-          defaultMessage: "DeepOcean",
+          id: "DeepOceanPage.DeepOcean",
+          defaultMessage: "Deep Ocean",
         }),
         url: urls[2],
       },
@@ -84,8 +84,8 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
       {
         id: 1,
         label: intl.formatMessage({
-          id: "ShallowOcean.ShallowOcean",
-          defaultMessage: "ShallowOcean",
+          id: "ShallowOceanPage.ShallowOcean",
+          defaultMessage: "Shallow Ocean",
         }),
         url: urls[1],
       },
@@ -95,16 +95,16 @@ export default function NavDropdown({ urls }: NavDropdownProps) {
       {
         id: 0,
         label: intl.formatMessage({
-          id: "ShallowOcean.ShallowOcean",
-          defaultMessage: "ShallowOcean",
+          id: "ShallowOceanPage.ShallowOcean",
+          defaultMessage: "Shallow Ocean",
         }),
         url: urls[0],
       },
       {
         id: 1,
         label: intl.formatMessage({
-          id: "DeepOcean.DeepOcean",
-          defaultMessage: "DeepOcean",
+          id: "DeepOceanPage.DeepOcean",
+          defaultMessage: "Deep Ocean",
         }),
         url: urls[1],
       },
