@@ -1,5 +1,5 @@
 describe("logged-in-with-mermaid-role", () => {
-  it("redirects to the /deep_ocean page", () => {
+  it("redirects to the /deep_ocean page with the right page content", () => {
     cy.visit("http://localhost:5173/beach-app");
     cy.url().should("equal", "http://localhost:5173/beach-app#/login");
 
@@ -8,6 +8,21 @@ describe("logged-in-with-mermaid-role", () => {
     cy.get("button").click();
 
     cy.url().should("equal", "http://localhost:5173/beach-app#/deep_ocean");
+
+    cy.get("label")
+      .eq(0)
+      .should("have.text", "Select a Page to View")
+      .should("be.visible");
+    cy.get("button").eq(0).should("be.visible").should("be.enabled");
+    cy.get("input").eq(0).should("be.visible").should("be.enabled");
+
+    cy.get("label")
+      .eq(1)
+      .should("have.text", "Welcome Mermaid")
+      .should("be.visible");
+    cy.get("button").eq(1).should("be.visible").should("be.enabled");
+    cy.get("input").eq(1).should("be.visible").should("be.enabled");
+
     cy.get("h1").should("have.text", "Deep Ocean").should("be.visible");
   });
 
@@ -37,5 +52,33 @@ describe("logged-in-with-mermaid-role", () => {
       .should("be.visible");
   });
 
-  //  TODO: Write more tests once you're done w the CSS for other components!
+  it("looks good at a mobile screen size too", () => {
+    //  This is my Samsung Galaxy S22's width in pixels, I forget the exact height:
+    cy.viewport(360, 700);
+
+    cy.visit("http://localhost:5173/beach-app");
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
+
+    cy.get("input").eq(0).type("Mermaid");
+    cy.get("input").eq(1).type("2");
+    cy.get("button").click();
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/deep_ocean");
+
+    cy.get("label")
+      .eq(0)
+      .should("have.text", "Select a Page to View")
+      .should("be.visible");
+    cy.get("button").eq(0).should("be.visible").should("be.enabled");
+    cy.get("input").eq(0).should("be.visible").should("be.enabled");
+
+    cy.get("label")
+      .eq(1)
+      .should("have.text", "Welcome Mermaid")
+      .should("be.visible");
+    cy.get("button").eq(1).should("be.visible").should("be.enabled");
+    cy.get("input").eq(1).should("be.visible").should("be.enabled");
+
+    cy.get("h1").should("have.text", "Deep Ocean").should("be.visible");
+  });
 });

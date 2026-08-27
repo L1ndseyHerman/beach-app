@@ -1,5 +1,5 @@
 describe("logged-in-with-swimmer-role", () => {
-  it("redirects to the /beach page", () => {
+  it("redirects to the /beach page with the right page content", () => {
     cy.visit("http://localhost:5173/beach-app");
     cy.url().should("equal", "http://localhost:5173/beach-app#/login");
 
@@ -8,6 +8,21 @@ describe("logged-in-with-swimmer-role", () => {
     cy.get("button").click();
 
     cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
+
+    cy.get("label")
+      .eq(0)
+      .should("have.text", "Select a Page to View")
+      .should("be.visible");
+    cy.get("button").eq(0).should("be.visible").should("be.enabled");
+    cy.get("input").eq(0).should("be.visible").should("be.enabled");
+
+    cy.get("label")
+      .eq(1)
+      .should("have.text", "Welcome Swimmer")
+      .should("be.visible");
+    cy.get("button").eq(1).should("be.visible").should("be.enabled");
+    cy.get("input").eq(1).should("be.visible").should("be.enabled");
+
     cy.get("h1").should("have.text", "Beach").should("be.visible");
   });
 
@@ -37,5 +52,33 @@ describe("logged-in-with-swimmer-role", () => {
       .should("be.visible");
   });
 
-  //  TODO: Write more tests once you're done w the CSS for other components!
+  it("looks good at a mobile screen size too", () => {
+    //  This is my Samsung Galaxy S22's width in pixels, I forget the exact height:
+    cy.viewport(360, 700);
+
+    cy.visit("http://localhost:5173/beach-app");
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
+
+    cy.get("input").eq(0).type("Swimmer");
+    cy.get("input").eq(1).type("1");
+    cy.get("button").click();
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
+
+    cy.get("label")
+      .eq(0)
+      .should("have.text", "Select a Page to View")
+      .should("be.visible");
+    cy.get("button").eq(0).should("be.visible").should("be.enabled");
+    cy.get("input").eq(0).should("be.visible").should("be.enabled");
+
+    cy.get("label")
+      .eq(1)
+      .should("have.text", "Welcome Swimmer")
+      .should("be.visible");
+    cy.get("button").eq(1).should("be.visible").should("be.enabled");
+    cy.get("input").eq(1).should("be.visible").should("be.enabled");
+
+    cy.get("h1").should("have.text", "Beach").should("be.visible");
+  });
 });
