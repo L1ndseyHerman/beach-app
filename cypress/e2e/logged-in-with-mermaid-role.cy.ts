@@ -28,8 +28,22 @@ describe("logged-in-with-mermaid-role", () => {
     cy.get("h1").should("have.text", "Deep Ocean").should("be.visible");
   });
 
+  it("lets you type to filter the options, partially and case-insensitively", () => {
+    cy.get("input").eq(0).type("AlLoW");
+
+    cy.get("li").should("be.visible").should("have.text", "Shallow Ocean");
+  });
+
+  it("shows the No Options text if you type something that's not contained in Logout", () => {
+    cy.get("input").eq(0).type("lOgIn");
+
+    cy.get(".MuiAutocomplete-noOptions")
+      .should("be.visible")
+      .should("have.text", "No options");
+  });
+
   //  These next three tests are also in Jest:
-  it("opens the dropdown if you click the down arrow icon, and the only option in it is Logout", () => {
+  it("opens the UserProfileDropdown if you click the down arrow icon, and the only option in it is Logout", () => {
     cy.get("button").eq(1).click();
 
     cy.get("li").should("be.visible").should("have.text", "Logout");
