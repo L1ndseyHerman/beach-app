@@ -28,18 +28,40 @@ describe("logged-in-with-mermaid-role", () => {
     cy.get("h1").should("have.text", "Deep Ocean").should("be.visible");
   });
 
+  it("opens the NavDropdown if you click the down arrow icon, and both urls are on there", () => {
+    cy.get("button").eq(0).click();
+
+    cy.get("li")
+      .eq(0)
+      .should("be.visible")
+      .should("have.text", "Shallow Ocean");
+    cy.get("li").eq(1).should("be.visible").should("have.text", "Deep Ocean");
+  });
+
   it("lets you type to filter the options, partially and case-insensitively", () => {
     cy.get("input").eq(0).type("AlLoW");
 
     cy.get("li").should("be.visible").should("have.text", "Shallow Ocean");
   });
 
-  it("shows the No Options text if you type something that's not contained in Logout", () => {
+  it("shows the No Options text if you type something that's not contained in the 2 urls", () => {
     cy.get("input").eq(0).type("lOgIn");
 
     cy.get(".MuiAutocomplete-noOptions")
       .should("be.visible")
       .should("have.text", "No options");
+  });
+
+  it("lets you go to both urls", () => {
+    cy.get("button").eq(0).click();
+    cy.get("li").eq(1).click();
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/deep_ocean");
+
+    cy.get("button").eq(0).click();
+    cy.get("li").eq(0).click();
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/shallow_ocean");
   });
 
   //  These next three tests are also in Jest:
