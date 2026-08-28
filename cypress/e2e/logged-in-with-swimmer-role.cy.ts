@@ -26,6 +26,74 @@ describe("logged-in-with-swimmer-role", () => {
     cy.get("h1").should("have.text", "Beach").should("be.visible");
   });
 
+  //  These next three tests are also in Jest:
+  it("opens the dropdown if you click the down arrow icon, and the only option in it is Logout", () => {
+    cy.visit("http://localhost:5173/beach-app");
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
+
+    cy.get("input").eq(0).type("Swimmer");
+    cy.get("input").eq(1).type("1");
+    cy.get("button").click();
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
+
+    cy.get("button").eq(1).click();
+
+    cy.get("li").should("be.visible").should("have.text", "Logout");
+  });
+
+  it("lets you type to filter the options, partially and case-insensitively", () => {
+    cy.visit("http://localhost:5173/beach-app");
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
+
+    cy.get("input").eq(0).type("Swimmer");
+    cy.get("input").eq(1).type("1");
+    cy.get("button").click();
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
+
+    cy.get("input").eq(1).type("lOG");
+
+    cy.get("li").should("be.visible").should("have.text", "Logout");
+  });
+
+  it("shows the No Options text if you type something that's not contained in Logout", () => {
+    cy.visit("http://localhost:5173/beach-app");
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
+
+    cy.get("input").eq(0).type("Swimmer");
+    cy.get("input").eq(1).type("1");
+    cy.get("button").click();
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
+
+    cy.get("input").eq(1).type("lOgIn");
+
+    cy.get(".MuiAutocomplete-noOptions")
+      .should("be.visible")
+      .should("have.text", "No options");
+  });
+
+  //  This one can only be done in Cypress :)
+  it("lets you log out", () => {
+    cy.visit("http://localhost:5173/beach-app");
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
+
+    cy.get("input").eq(0).type("Swimmer");
+    cy.get("input").eq(1).type("1");
+    cy.get("button").click();
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
+
+    cy.get("button").eq(1).click();
+
+    //  I made the link take up the whole li via CSS, that's not the default
+    cy.get("li").click();
+
+    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
+    cy.get("h1").should("have.text", "Login").should("be.visible");
+  });
+
   it("sends you to the 404 page if you try to access a page your role doesn't have access to", () => {
     cy.visit("http://localhost:5173/beach-app");
     cy.url().should("equal", "http://localhost:5173/beach-app#/login");
