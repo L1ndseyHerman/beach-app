@@ -1,5 +1,5 @@
 describe("logged-in-with-swimmer-role", () => {
-  it("redirects to the /beach page with the right page content", () => {
+  beforeEach(() => {
     cy.visit("http://localhost:5173/beach-app");
     cy.url().should("equal", "http://localhost:5173/beach-app#/login");
 
@@ -8,7 +8,9 @@ describe("logged-in-with-swimmer-role", () => {
     cy.get("button").click();
 
     cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
+  });
 
+  it("redirects to the /beach page with the right page content", () => {
     cy.get("label")
       .eq(0)
       .should("have.text", "Select a Page to View")
@@ -28,45 +30,18 @@ describe("logged-in-with-swimmer-role", () => {
 
   //  These next three tests are also in Jest:
   it("opens the dropdown if you click the down arrow icon, and the only option in it is Logout", () => {
-    cy.visit("http://localhost:5173/beach-app");
-    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
-
-    cy.get("input").eq(0).type("Swimmer");
-    cy.get("input").eq(1).type("1");
-    cy.get("button").click();
-
-    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
-
     cy.get("button").eq(1).click();
 
     cy.get("li").should("be.visible").should("have.text", "Logout");
   });
 
   it("lets you type to filter the options, partially and case-insensitively", () => {
-    cy.visit("http://localhost:5173/beach-app");
-    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
-
-    cy.get("input").eq(0).type("Swimmer");
-    cy.get("input").eq(1).type("1");
-    cy.get("button").click();
-
-    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
-
     cy.get("input").eq(1).type("lOG");
 
     cy.get("li").should("be.visible").should("have.text", "Logout");
   });
 
   it("shows the No Options text if you type something that's not contained in Logout", () => {
-    cy.visit("http://localhost:5173/beach-app");
-    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
-
-    cy.get("input").eq(0).type("Swimmer");
-    cy.get("input").eq(1).type("1");
-    cy.get("button").click();
-
-    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
-
     cy.get("input").eq(1).type("lOgIn");
 
     cy.get(".MuiAutocomplete-noOptions")
@@ -76,15 +51,6 @@ describe("logged-in-with-swimmer-role", () => {
 
   //  This one can only be done in Cypress :)
   it("lets you log out", () => {
-    cy.visit("http://localhost:5173/beach-app");
-    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
-
-    cy.get("input").eq(0).type("Swimmer");
-    cy.get("input").eq(1).type("1");
-    cy.get("button").click();
-
-    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
-
     cy.get("button").eq(1).click();
 
     //  I made the link take up the whole li via CSS, that's not the default
@@ -95,16 +61,6 @@ describe("logged-in-with-swimmer-role", () => {
   });
 
   it("sends you to the 404 page if you try to access a page your role doesn't have access to", () => {
-    cy.visit("http://localhost:5173/beach-app");
-    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
-
-    cy.get("input").eq(0).type("Swimmer");
-    cy.get("input").eq(1).type("1");
-    cy.get("button").click();
-
-    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
-    cy.get("h1").should("have.text", "Beach").should("be.visible");
-
     cy.visit("http://localhost:5173/beach-app#/deep_ocean");
 
     cy.url().should("equal", "http://localhost:5173/beach-app#/404");
@@ -123,15 +79,6 @@ describe("logged-in-with-swimmer-role", () => {
   it("looks good at a mobile screen size too", () => {
     //  This is my Samsung Galaxy S22's width in pixels, I forget the exact height:
     cy.viewport(360, 700);
-
-    cy.visit("http://localhost:5173/beach-app");
-    cy.url().should("equal", "http://localhost:5173/beach-app#/login");
-
-    cy.get("input").eq(0).type("Swimmer");
-    cy.get("input").eq(1).type("1");
-    cy.get("button").click();
-
-    cy.url().should("equal", "http://localhost:5173/beach-app#/beach");
 
     cy.get("label")
       .eq(0)
