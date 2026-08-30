@@ -112,11 +112,11 @@ Yarn: 1.22.22 (it uses that corepack thing if that matters?)
 
 ## Things that aren't in this App
 
-1. Auth0. We used Auth0 at ShiftKey to store user's emails, passwords, and other
+1. Auth0. We used Auth0 at ShiftKey to store users' emails, passwords, and other
    login related things. It also created the cookies that stored these user's info
    so that we didn't need to make our own. But Auth0 costs money so I won't be using it here.
    It's also rather complicated to set up and I wasn't the person who set it up for ShiftKey.
-   I just did things like editing specific user's account info on there if they were
+   I just did things like editing specific users' account info on there if they were
    having issues, and editing the login page HTML/CSS since that was also on Auth0.
 2. LaunchDarkly. We used feature flags on LaunchDarkly to show/hide features/components. But once again,
    LaunchDarkly costs $ so I won't be using it here. I had thoughts about how I could
