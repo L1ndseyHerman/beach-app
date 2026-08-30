@@ -1,4 +1,4 @@
-# Beach App -- STILL IN PROGRESS!!
+# Beach App
 
 ## Table of Contents
 
